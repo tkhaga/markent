@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<title>ffdshow フォント変更パッチ</title>
+</head>
+<body>
+<div><a href="index.html">The Markentトップへ</a></div>
+<h1>ffdshow フォント変更パッチ</h1>
+<p>
+ffdshow-20041012用フォント変更パッチ release 1 (05/03/14)<br />
+<a href="ffdshow_20041012_fc_r1.exe">ffdshow_20041012_fc_r1.exe</a><br />
+ffdshow-20041003用フォント変更パッチ release 1 (05/03/14)<br />
+<a href="ffdshow_20041003_fc_r1.exe">ffdshow_20041003_fc_r1.exe</a><br />
+</p>
+<p>
+ffdshow-20031028(非公式)用フォント変更パッチ release 1 (03/11/22)<br />
+<a href="ffdshow_20031028_fc_r1.exe">ffdshow_20031028_fc_r1.exe</a><br />
+</p>
+<p>
+ffdshow 2003-05-23用フォント変更パッチ release 1 (03/05/30)<br />
+<a href="ffdshow_20030523_fc_r1.exe">ffdshow_20030523_fc_r1.exe</a><br />
+ffdshow 2003-04-24用フォント変更パッチ release 1 (03/04/25)<br />
+<a href="ffdshow_20030424_fc_r1.exe">ffdshow_20030424_fc_r1.exe</a><br />
+ffdshow 2003-04-22用フォント変更パッチ release 1 (03/04/24)<br />
+<a href="ffdshow_20030422_fc_r1.exe">ffdshow_20030422_fc_r1.exe</a><br />
+ffdshow 2003-04-21用フォント変更パッチ release 1 (03/04/24)<br />
+<a href="ffdshow_20030421_fc_r1.exe">ffdshow_20030421_fc_r1.exe</a><br />
+ffdshow 2003-01-22用フォント変更パッチ release 1 (03/02/04)<br />
+<a href="ffdshow_20030122_fc_r1.exe">ffdshow_20030122_fc_r1.exe</a><br />
+ffdshow 2003-01-03用フォント変更パッチ release 1 (03/01/17)<br />
+<a href="ffdshow_20030103_fc_r1.exe">ffdshow_20030103_fc_r1.exe</a><br />
+ffdshow 2002-12-13用フォント変更パッチ release 1 (03/03/11)<br />
+<a href="ffdshow_20021213_fc_r1.exe">ffdshow_20021213_fc_r1.exe</a><br />
+ffdshow 2002-12-11用フォント変更パッチ release 1 (02/12/12)<br />
+<a href="ffdshow_20021211_fc_r1.exe">ffdshow_20021211_fc_r1.exe</a><br />
+ffdshow 2002-11-29用フォント変更パッチ release 1 (02/12/12)<br />
+<a href="ffdshow_20021129_fc_r1.exe">ffdshow_20021129_fc_r1.exe</a><br />
+ffdshow 2002-11-13用フォント変更パッチ release 1 (02/12/01)<br />
+<a href="ffdshow_20021113_fc_r1.exe">ffdshow_20021113_fc_r1.exe</a>
+</p>
+<p>　ffdshowとは、動画・音声の変換ソフトffmpegの一部であるlibavcodec及びXviDコーデックを元に作られたVFW(Video for Windows)コーデックであるffvfwをDirectShowFilter化したものであり、DivXやXviD、MS-MPEG4等のMPEG4系の動画をそれぞれの純正デコーダより高速にデコードできます。
+インストールするとDirectShowFilterとして登録され、Windows Media Player(その他DirectShowで動画を再生するソフト)でこれらのファイルを再生するときに
+このデコーダが適用されるようになります。(加筆&nbsp;05/03/14)<br />
+　ffdshowは設定画面が英語ですが、GOLD-UNKO氏によって提供されている日本語言語ファイルを導入することによって日本語表示にすることが出来ます。
+しかしWindows 98/Meでは言語ファイルを設定しても文字化けを起こしてしてしまいます。
+そこでこのパッチを適用すると、フォントをＭＳ Ｐゴシック(フォントサイズ9pt)に変更して文字化けを起こさないようにします。
+2000/XPでは不要です。<br />(追記&nbsp;03/08/12)<br />
+2000/XPで文字化けが起こらないのはFontLinkという機能で欧文フォントに日本語のフォントが組み込まれているからのようです
+</p>
+<p>パッチの適用方法</p>
+<p>ダウンロードしたファイルをffdshowをインストールしたフォルダ(通常は"C:\Program Files\ffdshow\")にコピーし、実行します。
+「正常終了」のダイアログが出たらそれを閉じ、同じフォルダにffdshow.OLDが生成されているかどうか
+を確認して下さい。これで日本語言語ファイルを設定しても文字化けが起こらなくなります。
+ffdshow.OLDはパッチ適用前のファイルですので、パッチ適用前に戻すには、ffdshow.axを削除し、
+ffdshow.OLDをffdshow.axにリネームしてください</p>
+<p>
+　ffdshowや日本語言語ファイルの入手、設定方法は<a href="http://goldnet.zive.net/bsjp2/">BSPlayer 日本語化ファイル ＆ ffdshow 日本語化ファイル 配布サイト / BSPlayer
+and ffdshow Japanese Languae pac /</a>
+のGOLD-UNKO氏のホームページや<a href="http://tmp4.2ch.net/download/">２ちゃんねるダウンロードソフト板</a>のスレッド「動画が重くて観れない香具師は」を参照してください。
+なお、私への連絡は<a href="mailto:&#x74;&#104;&#x61;&#103;&#x61;&#64;&#107;&#x37;.&#100;&#105;&#x6F;&#110;&#46;&#110;e.&#x6A;&#112;">メール</a>でお願いします。<a href="mail.html">メールフォーム</a>もあります
+</p>
+<p>　このパッチはffdshowがダイアログのフォントを選択できるようになれば不要になります。
+即興で作ってみたので、今後バージョンアップの際にパッチを作るかどうか分かりませんので
+ご了承下さい。なお、このパッチについての質問をffdshowの作者やGOLD-UNKO氏に送ったりしないようお願いします。</p>
+<p>
+最新の非公式ビルドの日本語化キットがtnetsixenon氏によって公開されています<br />
+<a href="http://www.geocities.jp/tnetsixenon/">日本語化プロジェクト - マルチメディア篇</a><br />
+Windows 98/Meでの文字化けも修正されます。
+</p>
+<p>　このパッチを作成するに当たって、リソース変更にAngus Johnson氏の<a href="http://www.users.on.net/johnson/resourcehacker/">Resource Hacker</a>、
+差分作成、自己更新ファイル作成に中川哲裕氏の<a href="http://www.vector.co.jp/soft/win95/util/se057654.html">WDiff</a>を利用させていただきました。
+また、ピロ氏の<a href="http://www10.plala.or.jp/piro-chu/">マウ筋</a>によって、少ない労力でパッチ作成ができるようになりました。
+便利なソフトをフリーで公開されている作者様に感謝いたします。</p>
+</body>
+</html>

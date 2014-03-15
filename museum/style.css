@@ -1,0 +1,21 @@
+
+H1 { BACKGROUND-COLOR:chartreuse }
+.size2 {
+	FONT-SIZE:12
+	}
+.softmidasi {
+	BORDER-COLOR:coral;
+	BORDER-STYLE:SOLID;
+	BORDER-BOTTOM-WIDTH:10;
+	BORDER-LEFT-WIDTH:20;
+	BORDER-RIGHT-WIDTH:20;
+	BORDER-TOP-WIDTH:10
+	}
+.center {
+	TEXT-ALIGN:CENTER
+	}
+
+
+.redb {
+	COLOR:red
+	}

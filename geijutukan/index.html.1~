@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<link rel="stylesheet" href="geijutukan.css" type="text/css" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+	<title>ザ★芸術館</title>
+</head>
+<body>
+<div><img src="logo.png"/></div>
+
+<div class="kakoi">
+<p>作品紹介</p>
+※申し訳ありません。思いっきり工事中です。完成までお待ち下さい。<br />
+■<a href="./kazeno/index.html">ザ★芸術館　風の如く水の如く</a><br />
+■<a href="./gold/index.html">ゴールドフィッシュ！</a><br />
+■ザ★芸術館　お前は一体誰なんだ？<br />
+■<a href="./sukue/index.html">救え！</a><br />
+</div>
+<div class="kakoi"><p>
+<a href="javascript:window.location.href='http://geijutukan.hp.infoseek.co.jp/cgi-bin/thebbs/dobbsr.cgi'">ザ★芸術館　専用掲示板rev.2</a> - 新掲示板です。スレッドフロート式です（Mozilla、Operaのかたはhttp://geijutukan.hp.infoseek.co.jp/cgi-bin/thebbs/dobbsr.cgiをコピーしてアドレスバーに貼りつけて開いてください）<br />
+<a href="/cgi-bin/board/markent/1/">ザ★芸術館　専用掲示板</a> - 旧掲示板です。新しく書き込まれる場合は上の掲示板をご利用下さい<br />
+<a href="javascript:window.location.href='http://geijutukan.hp.infoseek.co.jp/cgi-bin/upload.cgi'">ザ★芸術館　専用アップローダー</a>
+</p>
+</div>
+<div class="kakoi"><p>ダウンロード</p>
+<p>
+これらのゲームをプレイするには<a href="http://www.enterbrain.co.jp/digifami/products/rpg2000/rtp.html">RPGツクール2000RTP</a>を先にインストールする必要があります<br />
+また、LHAにより圧縮されていますので<a href="http://www.vector.co.jp/soft/win95/util/se094501.html">解凍レンジ</a>や<a href="http://www.vector.co.jp/soft/win95/util/se169348.html">Lhaplus</a>などのソフトを使って展開してください
+</p>
+<table width="600" cellpadding="2" cellspacing="2" border="1">
+	<tr>
+		<td>ザ★芸術館　風の如く水の如く　バグ修正版３(ヘルプ同梱)</td>
+		<td><a href="http://www.vector.co.jp/games/soft/dl/win95/game/se262829.html">ベクターより</a>(4.79MB)</td>
+		<td>05/04/30公開</td>
+	</tr>
+	<tr>
+		<td>ザ★芸術館　お前は一体誰なんだ？　バグ修正版(ヘルプ同梱)</td>
+		<td><A href="http://www.vector.co.jp/games/soft/win95/game/se334176.html">ベクターより</A>(5.39MB)</td>
+		<td>05/04/30公開</td>
+	</tr>
+	<tr>
+		<td>ゴールドフィッシュ！</td>
+		<td><A href="gold.lzh">gold.lzh</A>(1.53MB)</td>
+		<td>03/01/17公開</td>
+	</tr>
+	<tr>
+		<td>救え！</td>
+		<td><A href="sukue.lzh">sukue.lzh</A>(4.13MB)</td>
+		<td>05/04/17(05/04/24公開)</td>
+	</tr>
+</table>
+</div>
+<div class="kakoi"><img src="/cgi-bin/Count.cgi?df=h5_markent_1.dat&dd=E&md=6">(04/03/22より)</div>
+</body>

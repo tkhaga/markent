@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS" />
+<title>ソフト置き場</title>
+<link rel="STYLESHEET" type="TEXT/CSS" href="style.css" /></head>
+<body>
+<a href="index.html">The Markentトップへ</a> 
+<h1>ソフト置き場（HSP &amp; C言語実験室分室）</h1>
+<p>ここではHSPやC言語で作成したソフトを公開しています。HSPプラグイン、モジュール、スクリプト単体のものは
+<a href="soft2.html">ソフト置き場２</a>にて公開しています</p>
+<p>現在アーカイブの形式をLHA、GCAからZIP、7Zに移行中です。拡張子が*.lzhのものはLHAで、
+*.zipのものはZIPで圧縮しているので、<a href="http://sira.jp/soft/">解凍レンジ</a>等のツールで解凍してください。
+拡張子が*.gcaのものはGCAで圧縮しているので<a href="http://www.emit.jp/">GCA</a>等のツールで解凍してください。
+ちなみに全てフリーソフトとして公開しております（フリーソフト＝使用の際に製作者に一切金銭を支払う必要の無いソフトのこと）。
+バージョンナンバーについての解説は<a href="about.html">このサイトについて</a>をご覧下さい</p>
+<p>全てのソフトにソースファイルが付属しています(HSPの場合*.asのファイル)</p>
+<p>動作環境は特に記述がない場合はWindows95/NT3.51以降です</p>
+<p>一部のソフトは株式会社ベクター様のホームページにもアップしております<br />
+<a href="http://www.vector.co.jp/vpack/browse/person/an029962.html">THAGA作者ページ</a></p>
+<table border="solid">
+<tr>
+<th><a href="#a">EXT TOOLS</a></th>
+<th>ver.0.4a</th>
+<th>03/01/01</th>
+</tr>
+<tr>
+<th><a href="#b">expdef</a></th>
+<th>ver.1.3e</th>
+<th>02/08/02</th>
+</tr>
+<tr>
+<th><a href="#c">kmmlplay</a></th>
+<th>ver.0.3c</th>
+<th>05/07/22</th>
+</tr>
+<tr>
+<th><a href="#e">clview</a></th>
+<th>暫定公開版 1</th>
+<th>02/07/10</th>
+</tr>
+<tr>
+<th><a href="#g">XXXXXX XXX XXX XXX</a></th>
+<th>ver.1.1c</th>
+<th>03/07/11</th>
+</tr>
+<tr>
+<th><a href="#hspcmpx">hspcmpx</a></th>
+<th>ver.0.5a</th>
+<th>05/12/27</th>
+</tr>
+</table>
+<br />
+<a id="a"></a>
+<div class="softmidasi">その１<br />　HSP標準プラグイン、hspext.dllを用いたツール集、「EXT 
+TOOLS」ver.0.4a</div>
+<p>　「EXT TOOLS」は以下のリンクからダウンロードできます<br /><a 
+href="http://hp.vector.co.jp/authors/VA029962/ext04a.zip">ext04a.zip（184KB）のダウンロード</a><br /><a 
+href="ext04a.7z">ext04a.7z（91.9KB）のダウンロード</a>（7-ZIPアーカイブ版）</p>
+<p>
+今回の更新(ver.0.4a)<br />
+　・全てのソフトをコンパクト版HSP2.6β14ランタイムでコンパイルし直した(泣)<br />
+　・全てのソフトを拙作「hspupx for HSP 2.6」を使ってUPX で圧縮しました<br />
+　・アーカイブ形式の変更<br />
+　・ライセンスを「川合堂ライセンス-01」 に変更<br />
+　→regsize<br />
+　　・ver.0.4 公開当初から思っていたことなのですが、デフォルトでステルス機能<br />
+がオンだと使いにくいので、デフォルトではオフにしました<br />
+　　・コマンドラインオプション-b,-k を復活しました（何で消したんでしょう？）<br />
+　　・ver.0.4 で世代バックアップ機能をつけていたのに書き忘れていました。regs<br />
+ize.log が満杯になるとバックアップされたログはregsize0.log、regsize1.logとい<br />
+うように数字が増えていきます<br />
+　　・[RegCon（レジコン）と連携]機能でログを保存したときにも、設定で[日時を<br />
+挿入する] が有効になっていれば日時が入るようになりました<br />
+　　・ウィンドウをドラッグで移動する処理を変更しました<br />
+　→ffpc<br />
+　　・copyhist.txtに追記で保存するオプションをつけました<br />
+　→hisd<br />
+　　・skiplist.txtが無い場合には自動作成するようにした<br />
+</p>
+<p>　これはまず最初に履歴削除ソフトを作ろうとしたのがきっかけです。消したい履歴はレジストリにあったので、
+<span class="redb"><em>レジストリ操作</em></span>のためにはhspext.dllを使わなければなりませんでした。しかしhspext.dllには<span class="redb"><em>レジストリ操作</em></span>以外にも様々な機能があり、使わなければもったいないと思いました。そこで次に作成したのがファイル名を<em><span class="redb">クリップボードにコピー</span></em>するソフト、そして最後にレジストリのサイズ”だけ”を取得するソフト（<em><span class="redb">OS判別</span></em>などにDLLを使用しています）を作成しました。そこでこの三つをまとめて同じDLLを使ってサイズを削減したのが「EXT 
+TOOLS」というわけです。「EXT TOOLS」には</p>
+<p>　・某有名ソフト2つの履歴、及びWindows Media 
+Playerの履歴、「最近使ったファイル」を消去する「hisd」<br />　・ファイル、フォルダ名を六つの方法でクリップボードにコピーする「ffpc」<br />　・レジストリのサイズ"だけ"を取得し、ログに保存する「regsize」（Windows95/98/98SE/Me専用）</p>
+<p>　が含まれています。</p>
+<p><a href="regsize.jpg">スクリーンショット「regsize」(8.54KB)</a></p>
+<p>　雑誌掲載<br />Windows Power 2002年6月号<br />TECH Win 2002年7月号<br />フリーウェア3000 2002 
+Autumn</p><a id=b></a>
+<div class="softmidasi">その２<br />　Borland C++ Compiler 
+5.5でのHSPの拡張プラグイン作成を支援する「expdef」ver.1.3e<IMG height=32 
+alt="EXPDEF.GIF - 227BYTES" src="expdef.gif" width=32></DIV>
+<p>現在分かってしまっているバグ<br />・ダブルクオーテーションにはさまれている"//"や"/*"、"*/"をコメント部分の指示子と認識してしまう（近いうちに修正します）</p>
+<p>　「expdef」は以下のリンクよりダウンロードできます（ベクターのは古いのでこちらが最新です）<br /><a 
+href="http://hp.vector.co.jp/authors/VA029962/expdef13e.lzh">expdef13e.lzh(57.2KB)のダウンロード</a><br /><a 
+href="http://hp.vector.co.jp/authors/VA029962/expdef13e.gca">expdef13e.gca(54.2KB)のダウンロード</a>（GCAアーカイブ版）</p>
+<p><a href="furoku.txt">furoku.txtの表示</a>（02/05/06更新）</p>
+<p>今回の更新(ver.1.3e)</p>
+<p>&nbsp; 
+・コメント指示子"//"と"/*"、"*/"を同時に使用しているソースも処理できるよう<br />にした（最近のコンパイラはみんなそうなんですね(^^;）<br />&nbsp; 
+・開発環境をHSP 2.6β13に変更<br />&nbsp; ・"EXPORT"を検索するのを止めた（処理系によっては対応していないため）<br />&nbsp; 
+・Shift キーを押しながら起動するとドロップされたファイルのあるフォルダの全<br />てのファイルを処理するようにした<br />&nbsp; 
+・バージョン情報の削除</p>
+<p>　Borland社から無償で提供されているBorland C++ Compiler 
+5.5でHSPの拡張プラグインを作成するためには、モジュール定義ファイルという物を別に作成する必要があります。これは、そのままDLLのソースをコンパイルすると、DLLの関数名がHSPで読み込めない形式にエクスポートされてしまうからです。したがってこのモジュール定義ファイルでは、各関数ごとにHSPの仕様にあわせた関数名にエクスポートするよう指定しなければなりません。しかし、一つ二つの関数しか持たないDLLであればそれほど大変ではありませんが、数十個もの関数を持つ本格的なDLLの場合は、かなり面倒であり、途中で関数名を変えるときには書き直さなければならないし、何より書き間違える可能性もあります。前置きが長くなってしまいましたが、このような場合に「expdef」が役に立ちます。「expdef」には、以下の機能と特徴及び特長があります。</p>
+<p>　・HSPの仕様に合わせて書かれたC,C++のソースファイルを実行ファイルのアイコンにドラッグアンドドロップすれば、自動的にHSPの仕様にあわせたモジュール定義ファイル（拡張子が*.def）のEXPORTS文を出力します<br />　・複数ファイルの読み込みが可能です（ただし、最大の数はWindowsによって決められます）<br />　・宣言部の関数名の前後にいくら空白が有ったり、改行があっても認識します<br />　・宣言部の型の部分が"BOOL"でも"bool"でも認識します<br />　・コメント部分はちゃんと判別して無視します</p>
+<p>　内部関数を除く全ての関数について出力しますので、ソースデバッグにも利用できると思います。また、付録として、Borland C++ Compiler 
+5.5でのHSPの拡張プラグイン作成方法の詳細を記述した「furoku.txt」を同梱していますので、そちらも合わせてご覧下さい。また、ソースファイルを添付しておりますので御自由に利用ください</p>
+<p>　雑誌掲載<br />Windows Power 2002年6月号<br />Windows Power 2002年7月号<br />TECH Win 
+2002年7月号<br />フリーウェア3000 2002 Autumn</p><a id=c></a>
+<!--
+<div class="softmidasi">その３<br />　BEEP音MMLプレイヤー「kmmlplay」ver.0.3c(PC/AT互換機専用)
+<img height="32" alt="KMMLPLAY.GIF - 154BYTES" src="kmmlplay.gif" width="32" /></div>
+<p class="redb"><em>　ver.0.2a以前のバージョンをご利用の方はすぐに最新版をダウンロードしてください。ver.0.2a以前には重大なバグが含まれています</em></p>
+<p>　「kmmlplay」は以下のリンクよりダウンロードできます<br />
+<a href="http://hp.vector.co.jp/authors/VA029962/kmp03c.zip">kmp03c.zip(67.7KB)のダウンロード</a><br />
+<a href="kmmlplay.txt">ドキュメント(kmmlplay.txt)</a>
+</p>
+<p>今回の更新(ver.0.3c)</p>
+<pre>
+  ・L<n>コマンドで数字の後にピリオドをつけると発音される時に音長が1.5倍にな
+るように変更(mmlplayなどと同じ仕様)
+  ・HSP 2.61で実行ファイル作成
+  ・MML 文法解説を改訂
+  ・hspio.dll を更新。IOSCM.SYSを同梱したのでgiveio.sys は不要になりました
+</pre>
+<p>　川合秀実氏が開発されているフリーのOS、OSASK用のアプリケーションとして小柳雅明氏が開発されたmmlplay用のMMLファイルをWindows上で演奏するためのソフトです。
+OSASK用とはいっても文法はオーソドックスなものなので、たとえば「サクラ」用に作成したものも少しの改造で再生できるようになると思います。
+BEEP音用のスピーカーを使うのでOSASKで演奏したときとほとんど同じ音が出ます（ただしPC/AT互換機専用）。
+おまけで移調して演奏することもできます。なおNT系列で使用する場合は別途ドライバが必要です。詳しくはアーカイブ内のドキュメントを参照してください</p>
+<p>　OSASKのダウンロードは以下のサイトからたどってください（川合氏のホームページ）。mmlplayはディスクイメージ版にバンドルされています<br /><a 
+href="http://osask.jp/">http://osask.jp/</a></p>
+<p><img src="kmmlplay.png" alt="スクリーンショット(ver.0.3b)" width="406" height="100" /></p>
+<p><a href="daigo.mp3">こんな感じで音が鳴ります(川合氏のDAIGO.MMLを演奏しました MP3 387KB)</a></p>
+<p>　雑誌掲載<br />Windows Power 2002年12月号<br />ROMFanフリーウェア3</p>
+-->
+<a id=e></a>
+<div class="softmidasi">その４<br />　高機能「コマンドライン」ビューア「clview」 暫定公開版 1</div>
+<p>　「clview」は以下のリンクからダウンロードできます<br /><a href="http://hp.vector.co.jp/authors/VA029962/clvtr1.lzh">clvtr1.lzh（74.2KB）のダウンロード</a><br />
+<a href="http://hp.vector.co.jp/authors/VA029962/clvtr1.gca">clvtr1.gca（69.5KB）のダウンロード</a>（GCAアーカイブ版）</p>
+<p>このソフトは、普段は目にすることの少ないコマンドラインという物を表示、編集するためのソフトです。HSPでのプログラム開発を支援するような機能もついています。機能には</p>
+<p>　・編集ボックスの内容をファイル、フォルダのパスとみなし、フル<br />パス、DOS互換パス、その混合への相互変換（ffpcの機能を利用）<br />　・HSP 
+スクリプトエディタから実行する際のコマンドラインを編集ボックスの内容に設定<br />　・キーコードチェッカ<br />　・任意の実行ファイルを、編集ボックスの内容をコマンドラインに<br />付加して実行</p>
+<p>という機能があります。<br />まだまだUIの改善など課題がありますが、とりあえず公開しました。フィードバックをいただけると嬉しいです（もちろん他のソフトについても!!）</p>
+<p>現在微妙に放置中です…</p>
+<a id="g"></a>
+<div class="softmidasi">その５<br />　HSP 2.6のUPX圧縮済み実行ファイルの作成「XXXXXX XXX XXX XXX」ver.1.1c(ソフト名をXで置換しています)</div>
+<p>
+「XXXXXX XXX XXX XXX」は以下のリンクからダウンロードできます<br />
+<a href="http://hp.vector.co.jp/authors/VA029962/hu4hsp2611c.zip">hu4hsp2611c.zip(60.9KB)</a>
+</p>
+<p>このソフトは開発を停止しています。現在、後継ソフトとして「hspcmpx」というソフトを開発中です。</p>
+<p><a href="hspupx26.png">スクリーンショット(4.80KB ver.1.1b)</a></p>
+<div id="hspcmpx" class="softmidasi">その６<br />　HSPのUPX圧縮済み実行ファイルの作成「hspcmpx」ver.0.5a</div>
+<p>
+<span class="redb">hspcmpx ver.0.5にはhspcmpx.exeが含まれていませんでした。
+ご迷惑をおかけして申し訳ありませんでした</span>
+</p>
+<p>
+このソフトは
+私が前に公開していた「XXXXXX XXX XXX XXX」をベースに、Kpan氏の「Let's HSPU
+PX!」1.0で採用されたEXE ファイルを直接圧縮するという方式を採り入れ、C 言語で
+一から書き直す事により、高速化、軽量化し、より汎用性を増したものです。同種の
+ソフトの中で最もサイズが小さいと思います。<br />
+HSP 3.0，HSP 2.61，HSP 2.55で作成された実行ファイルを圧縮できることを確認しています<br />
+さらに、スクリプトをコンパイルして実行可能ファイルを作成しそれを圧縮する機
+能もあります（圧縮しないことも可能）。この機能を利用するにはHSP に含まれるhs
+pcmp.dllがhspcmpx.exe のあるフォルダかスクリプトと同じフォルダにある必要があ
+りますが（コマンドラインオプションで場所を指定することも可能）、多くのHSP 外
+部コンパイラと違ってhspcmp.dllが無くても起動できないということはありません。
+</p>
+<p>
+簡単な使い方<br />
+hspcmpx.exeに圧縮したいHSP製実行ファイルをドラッグアンドドロップしてください。
+コマンドラインから使えば出力ファイル名やUPXの場所、UPXの圧縮率を指定できます。詳しくはアーカイブ内のhspcmpx.txtを参照してください。<br />
+ちなみにコンソールアプリです。HSPの動作する環境なら動作します<br />
+</p>
+<p>
+<pre>
+  ver.0.5a (05/12/27)
+  ・コマンドライン解析を改良。今まで"-" で始まるファイル名は指定できませんで
+    したが、オプションと被らなければ指定できるようになりました
+  ・Visual C++ 2005でコンパイルできるようにソースを修正(Express Edition正式
+    日本語版で確認)
+  ・その他保守性を上げるための修正
+  ・gccを3.4.4に変更
+  ・このドキュメントだけを読むとこのソフトで使っているアイデアを私が考えたよ
+    うにも読めてしまうので、そこの所をはっきりと記述するようにしました
+  ・その他ドキュメントの加筆修正
+</pre>
+</p>
+<p>
+とりあえず形になったものを公開します<br />
+<a href="http://hp.vector.co.jp/authors/VA029962/hspcmpx05a.zip">hspcmpx05a.zip(151KB)</a>
+</p>
+
+
+<hr />
+ジャンク（hyperというソフト。使えば分かるそのくだらなさ）<br /><a href="http://hp.vector.co.jp/authors/VA029962/hyper.lzh">hyper.lzh</a> 
+<hr />
+
+<p>多くのソフトはおにたま氏の開発された<a href="http://www.onionsoft.net/hsp">Hot Soup 
+Processor</a>で作成されています。日曜プログラミングには最適な扱い易いインタプリタ言語です </p>
+</body></html>
+

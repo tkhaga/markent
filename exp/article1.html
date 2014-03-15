@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=Shift_JIS">
+</HEAD>
+<P><A href="../index.html">The Markentトップへ</A></P>
+<P><A href="index.html">HSP &amp; C言語実験室トップへ</A></P>
+<P>★「EXT 
+TOOLS」、「expdef」技術資料<BR>この記事ではそれぞれのソフトにおいて面倒であったことについて解説してゆきます。（注意　私にとっての面倒というのはたいしたことでないかもしれません）</P>
+<P>①「ffpc」での長いファイルパスの取得<BR>&nbsp; 取得部分のソースをここに載せます</P>
+<P><FONT size=2>repeat 
+fnum<BR>&nbsp;&nbsp;fcount=cnt<BR>&nbsp;&nbsp;index=0<BR>&nbsp;&nbsp;repeat<BR>&nbsp;&nbsp;&nbsp;getstr 
+copys.cnt,scmd.fcount,index,'\'<BR>&nbsp;&nbsp;&nbsp;index+=strsize<BR>&nbsp;&nbsp;&nbsp;if 
+strsize=0 :ccount=cnt-1 :break<BR>&nbsp;&nbsp;loop<BR>&nbsp;&nbsp;repeat 
+ccount<BR>&nbsp;&nbsp;&nbsp;loopcnt=cnt+1<BR>&nbsp;&nbsp;&nbsp;if cnt=0 
+:dirl=copys.0 
+:copy.fcount=copys.0<BR>&nbsp;&nbsp;&nbsp;dirl+="\\"+copys.loopcnt<BR>&nbsp;&nbsp;&nbsp;dirlist 
+copybuf.cnt,dirl<BR>&nbsp;&nbsp;&nbsp;strlen 
+l,copybuf.cnt<BR>&nbsp;&nbsp;&nbsp;strmid 
+copybuf.cnt,copybuf.cnt,,l-2<BR>&nbsp;&nbsp;&nbsp;copy.fcount+="\\"+copybuf.cnt<BR>&nbsp;&nbsp;loop<BR>&nbsp;loop<BR>&nbsp;repeat 
+fnum<BR>&nbsp;&nbsp;if 
+cnt=0{<BR>&nbsp;&nbsp;&nbsp;realcopy=copy.0<BR>&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;if 
+(cnt!0){<BR>&nbsp;&nbsp;&nbsp;realcopy+=" 
+"+copy.cnt<BR>&nbsp;&nbsp;&nbsp;}<BR>&nbsp;loop</FONT></P>
+<P>fnumには事前にいくつファイルがドロップアンドドラッグされたかを代入してあります。scmdには、ドロップアンドドラッグされたそれぞれのファイルの短いパスを配列に入れてあります。<BR>簡単にここでの処理を述べると、</P>
+<P>　まずscmdを'\'を区切り文字としてcopysにgetstrする<BR>　次にcopysの最初の二つを'\'入りでつなげてdirlとし、それをdirlist命令で長いファイル、フォルダ名に変える<BR>　同様に、三つ、四つとやる<BR>　こうして出た長いファイル、フォルダ名を順番につなげて、copyに代入<BR>　それを入力ファイルの数だけ行ってそれをつなげてrealcopyに代入、それをクリップボードにhspext.dllのclipsetでコピー</P>
+<P>となっています。</P>
+<P>②「expdef」でC,C++のソースファイルから関数名を抽出する<BR>　ソースは、「expdef」付属のものを参照してください<BR>　どのような処理を行っているのかというと</P>
+<P>　instr命令で"EXPORT BOOL WINAPI"（実はこの方法には"EXPORT BOOL 
+WINAPI"が一続きになっていないと認識できないという問題があります）という文字列をソースファイルから検索<BR>　その後にある文字列をDLL関数名として認識<BR>　それをもとにモジュール定義ファイルを作成<BR>　他にも改行を取り払ったり、など</P>
+<P>と実に単純です（考えるのは面倒でしたが）。</P>

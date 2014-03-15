@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=Shift_JIS">
+<TITLE>更新履歴</TITLE>
+</HEAD>
+<BODY>
+<P><A href="index.html">The Markentトップへ</A></P>
+<P>
+・HSPコンテスト2004応募作品、<a href="soft2.html#ptan">「プロセス探検」のソーススクリプト</a>を<a href="soft2.html">ソフト置き場２</a>で公開しました(04/10/30)<br />
+・「ザ★芸術館」の新しい掲示板を設置しました(04/06/26)<br />
+・おさかなちゃん様の「ザ★芸術館　お前は一体誰なんだ？」がテックウィン４月号のコンテストパークで入賞しました。このページでも一ヶ月後に転載させていただく予定です(04/03/14)<br />
+・とりあえず試験は終了しました。けれども今年から受験生なのであまり出来そうにありません(04/03/08)<br />
+・また試験が近いので、しばらく活動を休止します(04/02/27)<br />
+・「<a href="soft2.html#mhsp">MingHSP</a>」ver.1.0 beta 3を公開しました(04/02/12)<br />
+・「<a href="soft2.html#mhsp">MingHSP</a>」ver.1.0 beta 2を公開しました。サウンド機能などが利用できるようになりました。そろそろ安定してきたかな(04/02/04)<br />
+・「<a href="soft2.html#mhsp">MingHSP</a>」ver.1.0 beta 1を公開しました。やっとこさ日本語が扱えるようになりました(04/01/11)<br />
+・「MingHSP」ver.1.0 alpha 2のzipアーカイブ版が展開できなかったので差し替えました(04/01/08)<br />
+・「MingHSP」ver.1.0 alpha 2について<a href="workshop.html">ワークショップ</a>に書きました(04/01/05)<br />
+・明けましておめでとうございます。「MingHSP」を更新しました。詳細はまた追って書きます(04/01/02)<br />
+・またトップページだけデザインを変更。最近更新するのにいいネタがありません(03/11/30)<br />
+・<a href="http://athos.leffe.dnsalias.com/">ffdshow-20031028(非公式版)</a>を導入してみたのでついでに<a href="ffdpatch.html">パッチ</a>も作りました(03/11/22)<br />
+・「<a href="soft.html#hspcmpx">hspcmpx</a>」を更新しました(ver.0.2)。tom氏のHRT_IRWを使ったEXEへの対応(03/11/21)<br />
+・「<a href="soft2.html#kmc">kmmlcompiler</a>」を更新しました(ver.4)。コンテスト版よりいろいろと機能追加＆バグ修正がされています。<a href="./museum/">オンラインソフト博物館</a>を久々に更新しました(03/11/07)<br />
+・デザインを開設以来はじめて変更。といってもトップページだけ＆そんなに変わっていないですが。前よりは見やすくしたつもりです(03/09/16)<br />
+・「<a href="soft.html#c">kmmlplay</a>」を久しぶりに更新しました(ver.0.3b)。ファイル監視機能が付いています(03/08/20)<br />
+・「<a href="soft2.html#kmc">kmmlcompiler</a>」を更新しました(03/08/07)<br />
+・<a href="midi.html">なぜかMIDIとMMLの部屋</a>に一曲追加(03/08/19)<br />
+・ソフト置き場の改装、整理(03/08/11)<br />
+・増えてきたソフトを整理して、<a href="soft.html">ソフト置き場</a>と<a href="soft2.html">ソフト置き場２</a>に分けました。
+前者が普通のソフトで、２はHSPプラグインやモジュールなどです(あまりはっきりとは分けられませんが)。
+コンテストに出品したkmmlcompilerのソースを<a href="soft2.html">ソフト置き場２</a>で公開しました(03/08/07)<br />
+・現在外出中です。メーラーが使えないのでメールの確認、返信共に出来ません。
+現在ちまちまとトップページを更新しています(03/08/02)<br />
+・すんごく久しぶりに「<a href="soft.html#g">hspcmpx</a>」と「<a href="soft.html#g">hspupx for HSP 2.6</a>」を更新しました。どちらも単なる修正です(03/07/11)<br />
+・現在MingHSPなるHSPプラグインを開発中。詳細は<a href="workshop.html">ワークショップ</a>で(03/06/16)<br />
+・Operaで表示がおかしいのを修正。<a href="soft.html#f">hspextm</a>更新、selfolder相当の命令を追加(03/06/05)<br />
+・試験が終わりとりあえず<a href="workshop.html">ワークショップ</a>など更新(03/05/30)<br />
+・新コーナー<a href="mck.html">mck考</a>を開設。が、まだ記事は何もありません。とりあえずROPHON氏のMCKwatchを自分仕様に改造したものを置いてあります(03/05/12)<br />
+・久々にhspextm更新。fxtget相当の命令を追加(03/05/11)<br />
+・スタイルシート更新(03/05/05)<br />
+・またffdshowが更新されたので、その(ffdshow 2003-04-24用)<a href="ffdpatch.html">フォント変更パッチ</a>を公開しました。そろそろメインのコンテンツも更新せねば…(03/04/25)<br />
+・済みません、更新サボっていました。とりあえずffdshowの新版が出たのでそのフォント変更パッチ(ffdshow 2003-04-21,2003-04-22用)を公開しました。開発を断念したDLL版「U.S.A.」のソースを<a href="soft.html">ソフト置き場</a>で公開しました。煮るなり焼くなり好きにしてください。もし動かせたらどうやって動かせたか是非教えてください(^^;(03/04/24)<br />
+・いくらなんでもp2を認証無しにしておくのはまずかった。今のところ外部からの使用は検討しておりませんが要望があれば(というよりも自分でApacheでサーバを立てた方がいいかもしれませんが)。ついでに正規表現を勉強してちょっと得した気分(03/04/07)<br />
+・<a href="http://donpatch.www.td/">自宅サーバ</a>に２ちゃんねるブラウザ<a href="http://akid.s17.xrea.com/">p2</a>を設置してみました(03/03/27)<br />
+・<a href="./exp/">HSP &amp; C言語実験室</a>がようやく復活しました。復活第一号は「HSPでlame_enc.dllを使用してみる」です(03/03/22)<br />
+・ffdshow 2002-12-13用のフォント変更パッチがダウンロードできなくなっていました。申し訳ありません。修正しました(03/03/13)<br />
+・何も言わずに消えて申し訳ありませんでした。期末試験でした。「<a href="soft.html#c">kmmlplay</a>」ver.0.3aを公開しました。一時停止機能が付きました。ffdshow 2002-12-13用のフォント変更パッチを作成し忘れていたので追加しました(03/03/11)<br />
+・このページもとうとう１周年。これからもよろしくお願いします(03/02/18)<br />
+・トップページだけXHTML 1.1に完全準拠(03/02/12)<br />
+・「<a href="soft.html#g">hspcmpx</a>」ver.0.1aを公開しました。メモリ消費量が前バージョンの1/2になっています。中途半端ながらホームページのXHTML 1.1化を開始しました(03/02/11)<br />
+・<a href="ffdpatch.html">ffdshow 2003-01-22 フォント変更パッチ release 1</a>を公開しました。「hspupx for HSP 2.6」の公開を再開、及びその後継の「hspcmp X」ver.0.1を公開しました(02/02/04)<br>
+・自宅サーバを中田氏のAN HTTPDに切り替えました。理由は、私のパソコンのディスク容量が残り少ないからです。ワークショップがボンバーマンジェッターズとガンダムSEEDの感想になっています(03/01/22)<br>
+・おさかなちゃん様の新作、「ゴールドフィッシュ！」を<a href="./geijutukan/">ザ★芸術館</a>にて公開しました。<A href="ffdpatch.html">ffdshow 2003-01-03用フォント変更パッチ release 1</A>をようやく公開しました(03/01/17)<br>
+・「<A href="soft.html#g">hspupx for HSP 2.6</a>」をバージョンアップ(ver.1.1b)。ヘッダ部分を簡略BM法で検索するようにしたので、実行速度がアップしたかもしれません(03/01/06)<br>
+・「<a href="soft.html#a">EXT TOOLS</a>」をバージョンアップ(ver.0.4a)。ちょっと機能追加(03/01/01)<br>
+・ガンダム感想ページを目指しています＞<a href="workshop.html">ワークショップ</a>(02/12/30)<br>
+・「<A href="soft.html#g">hspupx for HSP 2.6</a>」をバージョンアップ(ver.1.1)。バッチ処理機能が全く動作しなかったのを修正しました。申し訳ありません(02/12/27)<br>
+・「<A href="soft.html#g">hspupx for HSP 2.6</a>」をバージョンアップ(ver.1.0)。cfgファイルを読みこんでのバッチ処理機能が付きました(02/12/24)<br>
+・「<A href="soft.html#g">hspupx for HSP 2.6</a>」をバージョンアップ(暫定公開版 3)。HSP 2.55にも対応(02/12/23)<br>
+・「<A href="soft.html#g">hspupx for HSP 2.6</a>」をバージョンアップ(暫定公開版 2)。見た目がだいぶ良くなりました。設定ファイルに直前の設定を保存するようにしました(02/12/22)<br>
+・「<A href="soft.html#g">hspupx for HSP 2.6</a>」を公開しました(暫定公開版 1)。HSP 2.6(β13以降)に
+対応したのはこれが世界初かもしれない。逆にHSP 2.55では利用できません。
+<A href="./geijutukan/index.html">ザ★芸術館</A>も更新しました(02/12/21)<br>
+・「<A href="soft.html#c">kmmlplay</A>」をバージョンアップ(ver.0.3)。クリップボードの内容を演奏する機能が付きました(02/12/13)<BR>
+・「<A href="soft.html#c">kmmlplay</A>」をバージョンアップ(ver.0.2d)。
+<A href="ffdpatch.html">ffdshow 2002-12-12用フォント変更パッチ release 1</A>を公開しました(02/12/12)。
+<A href="soft.html#f">hspextm 02/12/12</A>を公開(02/12/12)<BR>
+・試験前にもかかわらず、いろいろ更新。<A href="ffdpatch.html">ffdshow フォント変更パッチ</A>を公開しました。ビックリマン2000収集日記を久々更新しました(02/11/30)<BR>
+・ソフト置き場が古いままでkmmlplayやU.S.A.がダウンロードできなくなっていました、申し訳ありません。
+<A href="mail.html">メールフォーム</A>を設置しました。メールが送れない環境にある方でも私にメールを送ることが出来ます(02/11/20)<BR>
+・「<A href="soft.html#c">kmmlplay</A>」をバージョンアップ(ver.0.2c)。PC-98x1かどうかを判定できるようにしました(02/11/18)<BR>
+・「<A href="soft.html#c">kmmlplay</A>」をバージョンアップ(ver.0.2b)。前回とはうってかわってちびちびとした修正です。
+「<A href="soft.html#f">U.S.A.</A>」をバージョンアップ(ver.1.2a)。最新版のHSP 2.6βで動作しないのを修正(02/11/18)<BR>
+・<A href="./geijutukan/index.html">ザ★芸術館</A>にヘルプを追加しました(02/11/18)<BR>
+・<A href="./geijutukan/index.html">ザ★芸術館</A>をリニューアルしました(02/11/17)<BR>
+・ベクター公開を記念し、<A href="/cgi-bin/board/markent/1/">ザ★芸術館　専用掲示板</A>を設置しました(02/11/16)<BR>
+・「<A href="soft.html#c">kmmlplay</A>」をバージョンアップ(ver.0.2a)。非常に恐ろしいバグの修正＆使い勝手の向上(02/11/07)<BR>・<A 
+href="http://www.vesta.dti.ne.jp/~oriya/" 
+target=_blank>からふる</A>様へのリンクが切れかけていたので、修正しました。ただそれだけです…(02/11/05)<BR>・「<A 
+href="soft.html#a">EXT TOOLS</A>」をバージョンアップ(ver.0.4 
+開校111周年記念、開校記念日バージョン)。疲れました…(02/11/01)<BR>･「ザ★芸術館ヒント集？」をアップしました。<A 
+href="./geijutukan/">こちら</A>からたどってください<BR>･作者のおさかなちゃん様の了承を頂いて「ザ★芸術館」を転載させていただきました。自宅サーバに徳光和夫氏の講演会のファイルを公開しました(02/10/24)<BR>･サーバが稼動中かどうかがこのページでわかるようにしました(02/10/22)<BR>
+･<A href="http://donpatch.www.td/" target=_blank>自宅サーバ</A>を開設しました(02/10/21)<BR>
+･<A href="./museum/">オンラインソフト博物館</A>を暫定的にオープンしました(02/10/13)<BR>
+・「<A href="soft.html#c">kmmlplay</A>」をバージョンアップ(ver.0.2)。発音方法を変更しました(02/09/19)<br>
+・「<A href="soft.html#c">kmmlplay</A>」をバージョンアップ(ver.0.1a)。音符が正しく表示されないのを修正(02/09/17)<BR>
+・BEEP音によるMMLプレイヤー「<A href="soft.html#c">kmmlplay</A>」(ver.0.1)を初公開しました。なかなか遊べます。<A href="midi.html">なぜかMIDIとMMLの部屋</A>のEndless.mml更新(02/09/12)<BR>
+･<A href="midi.html">なぜかMIDIとMMLの部屋</A>(なぜかMIDIの部屋から改称)と<A 
+href="profile.html">プロフィール</A>の更新(02/09/01)<BR>・「<U><A href="soft.html#d"><FONT 
+color=#0000ff>U.S.A.</FONT></A></U>」をバージョンアップ(1.2 release 
+2)。"test.as","usa.txt"の修正。プロフィールを微妙に修正。ワークショップ更新。なぜかMIDIの部屋を更新(02/08/31)<BR>・「<U><A 
+href="soft.html#d"><FONT 
+color=#0000ff>U.S.A.</FONT></A></U>」をバージョンアップ(1.2)。DLL化に備え"unarc","arcdll"命令の仕様の大幅変更、"usass.as"を新たに追加(02/08/28)<BR>・「<A 
+href="soft.html#a">EXT 
+TOOLS</A>」をバージョンアップ(0.3d)。色々なバグを直しました。また「ffpc」に機能追加を行いました(02/08/19)<BR>・「<A 
+href="soft.html#a">EXT 
+TOOLS</A>」をバージョンアップ(0.3c)。ver.0.3a以来「regsize」のログ保存機能がおかしくなっていたのを修正。3日連続での更新になって申し訳ありません。転載条件も変更されました(02/08/15)<BR>・「<A 
+href="soft.html#a">EXT 
+TOOLS</A>」をバージョンアップ(0.3b)。「regsize」のRegCon（レジコン）と連携機能に大バグがあったのを修正。申し訳ありません(02/08/14)<BR>・レイアウトをわずかに変更(02/08/14)<BR>・「<A 
+href="soft.html#a">EXT 
+TOOLS</A>」をバージョンアップ(0.3a)。「regsize」にRegCon（レジコン）と連携機能を付けた(02/08/13)<BR>・「<U><A 
+href="soft.html#d"><FONT 
+color=#0000ff>U.S.A.</FONT></A></U>」をバージョンアップ（1.1a）。バグ修正。全てのソフトのウイルスチェックをやるようにした(02/08/09)<BR>・「<U><A 
+href="soft.html#d"><FONT 
+color=#0000ff>U.S.A.</FONT></A></U>」をバージョンアップ（1.1）。仕様の変更(02/08/03)<BR>・「<A 
+href="soft.html#b">expdef</A>」をバージョンアップ（1.3e）。Shiftキーを押しながら起動したときに、同じフォルダの全てのファイルを処理するようにした(02/08/02)<BR>・「<U><A 
+href="soft.html#d"><FONT 
+color=#0000ff>U.S.A.</FONT></A></U>」をバージョンアップ（1.0）(02/08/02)<BR>・<A 
+href="/cgi-bin/ezboard/markent/1/">掲示板</A>の設置。SDXシールの画像をjpegに変更。今回の更新は見た目に関するものが多いです（02/07/26）<BR>・「<A 
+href="soft.html#f">hspextm</A>」を更新。SDXシールの画像を公開（02/07/18）。<BR>・ソフトを更新（02/07/15）<BR>・<A 
+href="./bm2000/index.html">ビックリマン2000</A>ちょっと更新（02/07/12）<BR>・<A 
+href="workshop.html">ワークショップ</A>更新(02/07/11)<BR>・「<U><A href="soft.html#d"><FONT 
+color=#0000ff>U.S.A.</FONT></A></U>」をバージョンアップ（暫定公開版 
+2）。MIDIファイルが壊れていました、申し訳ありません（02/07/11）<BR>・<A href="http://usk.hypermart.net/" 
+target=_blank>HSPウェブリング</A>に加入いたしました<BR>・「<A href="soft.html#a">EXT 
+TOOLS</A>」（0.3）、「<U><A href="soft.html#d"><FONT 
+color=#0000ff>U.S.A.</FONT></A></U>」（暫定公開版 1）、「<U><A href="soft.html#e"><FONT 
+color=#0000ff>clview</FONT></A></U>」（暫定公開版 
+1）をバージョンアップ及び公開。ビックリマン2000関係をアップ（02/07/10） <BR>・「<A href="soft.html#a">EXT 
+TOOLS</A>」をバージョンアップ(0.2a)。Cookie管理ソフト「See 
+You」（テスト版）を追加。その他不具合の修正（02/06/16）<BR>・「<A href="soft.html#a">EXT 
+TOOLS</A>」をバージョンアップ(0.2)。久し振りの更新なのでほんとに色々(02/06/09)<BR>・<FONT align="center">「<A 
+href="soft.html#a">ffpc</A>」の修正版をアップしました。Winodws 
+Me/2000対策(02/06/05)</FONT><BR>・「<A 
+href="soft.html#b">expdef</A>」やいくつかのコンテンツを更新(02/06/02)<BR>・このサイトが02/04/30に<A 
+href="http://www.google.com/">Google</A>に捕捉されたようです<BR>・<A 
+href="workshop.html">ワークショップ</A>更新(02/05/21)<BR>・<A 
+href="links.html">リンク集</A>にリンクを2件追加(02/05/14)<BR>・「<A 
+href="soft.html#b">expdef</A>」をバージョンアップ(1.3c)。フォルダ入力に暫定対応。次バージョンへのつなぎ(02/05/14)<FONT 
+size=3><BR>・<A href="links.html">リンク集</A>ようやく公開<BR>・「<A 
+href="soft.html#b">expdef</A>」をバージョンアップ(1.3b)。Windows 
+Meで起こると思われる問題を修正(02/05/06)<BR>・「<A 
+href="furoku.txt">furoku.txt</A>」を更新(02/05/05)<BR>・「<A 
+href="soft.html#b">expdef</A>」をバージョンアップ(1.3a)。小文字のboolを大文字に変える部分を最適化(02/04/30)<BR>・「<A 
+href="soft.html#b">expdef</A>」をバージョンアップ。これでほぼ完成(02/04/21)<BR>・「<A 
+href="soft.html#b">expdef</A>」をバージョンアップ。コメント処理(02/04/18)<BR>・「<A 
+href="soft.html#b">expdef</A>」をバージョンアップ。あの問題を解決しました(02/04/12)<BR>・「<A 
+href="soft.html#a">EXT 
+TOOLS</A>」をバージョンアップ。サイズ削減(02/04/05)<BR>・トップページだけ更新(^^;(02/04/04)<BR>・「<A 
+href="exp/index.html">HSP ＆ C言語実験室</A>」と、「<A 
+href="workshop.html">ワークショップ</A>」をオープンしました(02/04/03)<BR>・「unarc」のバージョンアップ。少し最適化。名前を変えたほうが良いかもしれないと思う今日この頃(02/03/29)<BR>・ちまちまと更新、新しい話題はなし(02/03/25)<BR>・とうとうスーパーDXシールが来ました。ビックリマン2000収集日記に書きました(02/03/24)<BR></FONT></FONT><FONT 
+size=5><FONT size=3>・スタイルシートに挑戦。見栄えが良くなったかも(^^;(02/03/24)<BR></FONT></FONT><FONT 
+size=5><FONT 
+size=3>・「unarc」がバージョンアップしました。LHA書庫の解凍も出来ます(02/03/24)</FONT><BR></FONT><FONT 
+size=5><FONT size=3>・「EXT 
+TOOLS」、「expdef」のバージョンアップ(02/03/18)</FONT><BR></FONT>・HSPからアーカイバDLLを利用するモジュール<A 
+href="soft.html#c">「unarc」 
+ver.0.1</A>を公開しました。ただ、今のところUnGCA32.dll専用です(02/03/18)<BR><FONT size=5><FONT 
+size=3>・「EXT TOOLS」ver.0.1を公開しました(02/03/11)<BR></FONT></FONT><FONT size=5><FONT 
+size=3>・ソフトを<A href="soft.html">ソフト置き場（HSP &amp; 
+C言語実験室分室）</A>に移動しました(02/03/11)</FONT><BR></FONT>・ビックリマン2000発展講座を仮アップしました(02/03/08)<BR>・furoku.txtを書き換えました(02/03/08)<BR>・expdefがver.1.0aになりました(02/03/07) 
+</P>
+</BODY>
+</HTML>

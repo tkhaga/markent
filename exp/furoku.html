@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=Shift_JIS">
+<TITLE>Borland C++ Compiler 5.5を用いてHSP用のプラグインを作る方法(02/03/08版)</TITLE>
+</HEAD>
+<BODY>
+<P><A href="index.html">The Markentトップへ</A></P>
+<P><A href="index.html">HSP ＆ C言語実験室トップへ</A></P>
+<P>※先に公開しております<A 
+href="furoku.txt">furoku.txt</A>をほとんどそのままHTML化しておりますのでとってもみにくいかと思いますがそれは勘弁してください</P>
+<P>&nbsp; <FONT size=4>Borland C++ Compiler 
+5.5を用いてHSP用のプラグインを作る方法(02/03/08版)</FONT></P>
+<P>＠目次＊＊＊＊</P>
+<P>&nbsp; ＠<A href="#hajime">はじめに</A>＊＊＊＊<BR>&nbsp;&nbsp;&nbsp; 
+→18行目から<BR>&nbsp; ＠<A href="#tejun">作成手順</A>＊＊＊＊<BR>&nbsp;&nbsp;&nbsp; 
+→30行目から<BR>&nbsp; ＠<A href="#waza">技</A>＊＊＊＊<BR>&nbsp;&nbsp;&nbsp; 
+→99行目から<BR>&nbsp; ＠<A href="#syousai">詳細解説</A>＊＊＊＊<BR>&nbsp;&nbsp;&nbsp; 
+→135行目から<BR>&nbsp; ＠<A href="#owari">おわりに</A>＊＊＊＊<BR>&nbsp;&nbsp;&nbsp; 
+→168行目から</P>
+<P><A name=hajime></A>＠はじめに＊＊＊＊</P>
+<P>&nbsp; HSPのマニュアルにはMicrosoft Visual C++とBorland C++ 
+Builderでの拡張プラグイン(DLL)の作成方法が記載されていますがどちらも初心者が使うには少し高く操作も難しいのではないかと思います(私はどちらも持っていません^^;)。そこで、このテキストではBorland 
+C++ Builderのメーカー、インプライズ社が無償で配布しているBorland C++ Compiler 
+5.5を用いてDLLを作成する方法を解説します。Borland C++ 
+Builderとは違ってコマンドラインから使用しなければなりませんが、コマンドの入力方法も解説しているので、是非試してみてください。C,C++についての知識があることと、HSP本体があることを前提とさせていただきます。</P>
+<P><A name=tejun></A>＠作成手順＊＊＊＊</P>
+<P>１、作成するDLLのソースを作成してください。HSPの仕様に基づいていればC,C++どちらの規格でも結構です。HSPの仕様についてはHSPマニュアルの「HSPマニュアル総合インデックス」から「HSPからのDLL呼び出し方法リファレンスマニュアル(上級者向け) 
+(hspdll.htm)」又はインターネット上の<A 
+href="http://www.onionsoft.net/hsp/hspdll.html">http://www.onionsoft.net/hsp/hspdll.html</A>を参照してください。</P>
+<P>２、*.def(ファイル名は適当でよい)という空のファイルを作成し以下の内容をテキストエディタ等で打ち込みます("関数名"のところには、ソースで定義した関数の名前を定義した数だけ以下のように記述してください)</P>
+<P><FONT 
+size=2>EXPORTS<BR>_(関数名その１)@16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+=(関数名その１)<BR>_(関数名その２)@16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+=(関数名その２)</FONT></SPAN></FONT></FONT></SPAN></FONT><BR></FONT></SPAN></FONT></FONT></SPAN></FONT><BR>(例)<BR>&nbsp; 
+Hot Soup Processorのホームページで配布されているサンプルDLL,autochk.dllの場合</P>
+<P><FONT size=2>EXPORTS<BR>_dlltest@16<FONT 
+color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</FONT>=dlltest</FONT><BR><BR>３、MS-DOSプロンプト(またはコマンドプロンプト)を起動し、Borland C++ 
+Compiler 
+5.5のインストールされているフォルダ(bcc32.exe等のあるフォルダ)に移動して以下のコマンドを打ち込みます。このとき作成するDLLのソースファイルも同じフォルダに入れておいてください。<BR>&nbsp; 
+このときBorland C++ Compiler 
+5.5のインストールされているフォルダにパスが通っていれば、好きなフォルダで作業が出来ます。詳しくは下の「技」で解説します。</P>
+<P><FONT size=2>bcc32 -c (ソースファイル名)</FONT></P>
+<P>*.obj(オブジェクトファイル)が同じフォルダに作成されたかを確認してください。</P>
+<P>４、続けて以下のコマンドを打ち込んでください<BR><BR><FONT size=2>ilink32 -Tpd c0d32x.obj 
+(作成された*.objのファイル名).obj,(作成するDLLの名前).dll,,import32.lib 
+cw32i.lib,(作成した*.defファイル名).def</FONT><BR><BR>c0d32x.objがスタートアップ、cw32i.lib及びimport32.libがランタイムです。cw32i.libは標準関数のオブジェクトファイルであり、import32.libはWindowsのAPIを呼び出すためのオブジェクトファイルです。(詳しくは下の「詳細解説」にて)</P>
+<P>&nbsp; 
+これでDLLファイルが同じフォルダに作成されたはずです、HSPを使ってテストしてください。また、マルチスレッドを使用する場合はcw32i.libのところをcw32mti.libに変更してください。他にもファイルがたくさん出来ますが、-Tpdの隣に-xを付ければその数が一つ減ります。</P>
+<P>(例)<BR>&nbsp; Hot Soup 
+Processorのホームページで配布されているサンプルDLL,autochk.dllの場合(*.defファイルはtest.defとしたとして)</P>
+<P><FONT size=2>bcc32 -c autochk.cpp&nbsp;ilink32 -Tpd c0d32x.obj 
+autochk.obj,autochk.dll,,import32.lib 
+cw32i.lib,test.def</FONT><BR><BR>また*.defファイルのところは拡張子を省略して<BR>&nbsp;&nbsp;&nbsp; 
+test<BR>とすることも出来ます。</P>
+<P><A name=waza></A>＠技＊＊＊＊</P>
+<P>&nbsp; --その１--<BR>&nbsp; Windows95系列の場合(95,98,98SE 
+Meは未確認)、起動ドライブのルートにあるautoexec.batの一番下に次の行を追加するとわざわざBorland C++ Compiler 
+5.5のあるフォルダまで移動せずにbcc32やilink32のコマンドを任意のフォルダから使用できます<BR>&nbsp; SET 
+PATH=%PATH%;(Borland C++ Compiler 5.5のあるフォルダ)<BR>ちなみに、私の環境では<BR>&nbsp; SET 
+PATH=%PATH%;d:\borland\bcc55\bin<BR>となっています。Cドライブはいっぱいです^^;)<BR>&nbsp; 
+WindowsNT系列の場合(2000のみ確認)、"システムのプロパティ"から"環境変数"ボタンを押し、環境変数PATHにBorland C++ 
+Compiler 5.5のあるフォルダを追加します。(これらの設定を簡単に行うソフトもあるらしいです)</P>
+<P>&nbsp; --その２--<BR>&nbsp; 
+DLLが作成できなかったりHSPから呼び出せなかった場合はc0d32x.objのところをc0d32w.obj,c0d32.obj,c0s32.obj等に、cw32i.libやcw32mti.libをcw32.lib,cw32mt.libに変えてみて下さい。というのもここで紹介した方法はもっともファイルサイズが小さくなる方法なのでいろいろな標準関数やライブラリを使用しているDLLの場合この方法では適切なオブジェクトファイルやライブラリファイルがリンクされていない可能性があるからです。ちなみに、この方法でHotSoup 
+Processorのホームページで配布されているサンプルDLL,autochk.dllを作成すると、5.5KB(5,632バイト)となりました。ここにある方法でも駄目であるならばcw32i.lib、import32.libのところに別の*.libファイルを追加してみてください。これらの*.libファイルはLibフォルダにあります。</P>
+<P>&nbsp; --その３--<BR>&nbsp; 
+２つ以上のソースを結合させる場合は、bcc32でそれぞれの*.objファイルを作成し、ilink32のところでc0d32x.obj test1.obj 
+test2.obj(test1.obj,test2.objを作成した場合)の様にしてください。bcc32は２つ以上のソースファイルの入力にも対応しています。</P>
+<P>&nbsp; --その４--<BR>&nbsp; 
+ソースファイルをコンパイルする際に（bcc32コマンド）、-O1,-O2をオプションとして指定すると、生成オブジェクトファイルの最適化を行うことが出来ます。-O1オプションではサイズの最適化、-O2では実行速度の最適化を行えます。-O1は余り効き目がありませんが、-O2はなかなか効果があります。</P>
+<P><A name=syousai></A>＠詳細解説＊＊＊＊</P>
+<P>&nbsp; bcc32とは？<BR>&nbsp;&nbsp;&nbsp; 正確にはbcc32.exeであり、Borland C++ Compiler 
+5.5のメインプログラムです。本来ならばこのプログラムが後に解説するilink32等を自動的に呼び出してソースからプログラムを作成できるのですが、HSPの拡張プラグインを作るときはこれではうまく行きません。そのため、取り敢えずこの場合はbcc32に-cオプションを付けてオブジェクトファイルを作成し、ilink32は別に起動して細かな設定をします。詳細は、HSPマニュアルの「HSPマニュアル総合インデックス」から「HSPからのDLL呼び出し方法リファレンスマニュアル(上級者向け) 
+(hspdll.htm)」を参照してください。</P>
+<P>&nbsp; ilink32とは？<BR>&nbsp;&nbsp;&nbsp; 正確にはilink32.exeであり、Borland C++ 
+Compiler 
+5.5のリンカーです。リンカーの役割はランタイム、スタートアップをオブジェクトファイルとスタティック(静的)に結合して実行可能ファイルを作成することです(自分でも何を書いているのやら^^;)。ここではモジュール定義ファイル(*.def)を用意してDLLの関数名をエクスポートすることによって、HSPが認識できるDLLを作成します。詳細は、HSPマニュアルの「HSPマニュアル総合インデックス」から「HSPからのDLL呼び出し方法リファレンスマニュアル(上級者向け) 
+(hspdll.htm)」を...^^;)</P>
+<P>&nbsp; オブジェクトファイルとは？<BR>&nbsp;&nbsp;&nbsp; 
+オブジェクトファイルとはソースファイルをコンピュータが命令として認識できるネイティブコードに直した(コンパイルした)ものですが、これだけでは起動することが出来ません。</P>
+<P>&nbsp; スタートアップとは？<BR>&nbsp;&nbsp;&nbsp; 
+スタートアップとはオブジェクトファイルにスタティック(静的)に結合される、プログラムを起動するのに必要なものです。</P>
+<P>&nbsp; モジュール定義ファイルとは？<BR>&nbsp;&nbsp;&nbsp; 
+ここではDLLの関数名をHSPが認識できる形式に変換するために使用しています。本当はもっといろいろな設定ができます。</P>
+<P><A name=owari></A>＠おわりに＊＊＊＊</P>
+<P>&nbsp; 
+実は書いている本人C,C++に余り詳しいわけではありません、分かっていたでしょうが...ということでもしかしたらもっと高速化が出来たりファイルサイズをもっと小さくする方法があるかもしれません。皆さんもいろいろ試してみてください、私はもう限界です^^;)御意見、御質問、誤ったことが書かれていましたらぜひ私までお寄せください。<BR>また、この文章を書くにあたって矢沢久雄氏の『プログラムはなぜ動くのか』(日経ＢＰ社)を大幅に参考にさせていただきました、(Borland 
+C++Compiler 
+5.5の使い方も少しだけ載っています;^^)この場をお借りしてお礼申し上げます。また、コンパイラを無償で提供して下さっているインプライズ社にも大変感謝しております。C,C++は高いお金を払わなければ出来なかったというのはもう過去の話です。他にも優れた無料コンパイラが複数存在するので、皆さんもこれを機にプログラミングに挑戦してみてはいかがでしょうか？</P>
+<P>・Hot Soup Processorホームページ<BR>&nbsp;&nbsp;&nbsp; <A 
+href="http://www.onionsoft.net/hsp/">http://www.onionsoft.net/hsp/</A></P>
+<P>・インプライズ社ホームページ<BR>&nbsp;&nbsp;&nbsp; <A 
+href="http://www.inprise.co.jp/">http://www.inprise.co.jp/</A></P>
+<P>・日経ＢＰ社ホームページ<BR>&nbsp;&nbsp;&nbsp; <A 
+href="http://store.nikkeibp.co.jp/">http://store.nikkeibp.co.jp/</A><BR></P>
+</BODY>
+</HTML>

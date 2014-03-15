@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>mck考</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<h1>mck考</h1>
+<p>ここはフリーのファミコン用サウンドドライバ、<a href="http://nesmusic.zophar.net/">mck</a>について
+いろいろと書く予定の場所ですが、何せ私自身mckに触れ始めてからあまり間が無いのでまだ何もありません。
+とりあえずROPHON氏のmck用ツール<a href="http://homepage1.nifty.com/rophon/">MCKwatch</a>を自分仕様に改造したものを公開しておきます。
+記事はこれから増やしたいと思っているのでよろしくお願いします。</p>
+<p>３、おまけ</p>
+<p>ROPHON氏の<a href="http://homepage1.nifty.com/rophon/">MCKwatch</a>を自分仕様に改造しました<a href="tmckw2.zip">tmckw2.zip</a>(5.37KB)<br />
+hspextを使用しないので実行ファイルにしたときのサイズが減少します。ただし、一部元の仕様を変更しています</p>
+<p>今回の変更点<br />
+version 4.20 - 1 (03/06/20)<br />
+・MCKwatch 4.20版<br />
+ンキャプチャ命令を使わないようにした（ただし２重起動チェックの部分はオリジナ<br />
+・仕様が変わっているのにプラスなんておこがましいことに気付きました。だからマ<br />
+イナスです(サイズも減っていますし)
+<br />
+・start.axのサイズ<br />
+&nbsp;最適化前(hspext.dll外し後)  11960バイト<br/>
+&nbsp;最適化後                    11772バイト
+</p>
+</body>
+</html>
+<!--
+<p>１、mckとは何ぞや</p>
+<p>　mckとはファミコン用の汎用サウンドドライバです。mckはNESASMという6506アセンブラ用のソースとして提供され、
+作曲はアセンブラでのプログラミングによって行います（正確に言うとあらかじめ決められたラベルに値を設定していく）。
+これを使うことによって、NSFフォーマットのファイル等を作って対応プレイヤーで再生することが出来ます。なお、
+ゲームのROMから取り出さなければならないSPC等とは違い、NSFのフォーマット自体に違法性は全くありません。
+</p>
+<p>２、簡単な楽しみ方</p>
+<p>　とりあえず用意しなければならないのは
+<dl>
+　<dt>mck</dt>
+  <dt>NESASM</dt>
+  <dt>再生用プレイヤー(KbMediaPlayer等)</dt>
+</dl>
+です。mckは<a href="http://nesmusic.zophar.net/">http://nesmusic.zophar.net/</a>で入手します。NESASMはMagicKitというツールの中に含まれておりまたあると便利なものとして
+<dl>
+<dt>mckc</dt>
+<dt>MCKwatch</dt>
+</dl>
+があります。これらもmckの配布サイトで入手できますが、作者のホームページにいけば、最新のものを手に入れられます。
+mckcの作者のサイトは<a href="http://manbowj.hp.infoseek.co.jp/">http://manbowj.hp.infoseek.co.jp/</a>、MCKwatchの作者のサイトは
+<a href="http://homepage1.nifty.com/rophon/">http://homepage1.nifty.com/rophon/</a>です。
+</p>  -->

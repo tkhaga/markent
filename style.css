@@ -1,0 +1,74 @@
+/* Generator Lunar - Build 140 - on 03/06/07 19:43:20 */
+
+BODY {
+margin : 10px 40px 10px 40px ;
+}
+
+H1 {
+border-left : solid 12px #7fff00 ;
+border-bottom : solid 6px #7fff00 ;
+}
+
+IMG {
+border-style : none ;
+}
+
+PRE {
+background-color : wheat ;
+}
+
+.center {
+text-align : center ;
+}
+
+.haji {
+width : 50% ;
+}
+
+.kakoi {
+border : solid 1px #000000 ;
+}
+
+.redb {
+color : red ;
+}
+
+.size2 {
+font-size : 3em ;
+}
+
+.sitename {
+font-size : 12em ;
+}
+
+.softmidasi {
+border-color : #ff7f50 ;
+border-style : solid ;
+border-bottom-width : 10px ;
+border-left-width : 20px ;
+border-right-width : 20px ;
+border-top-width : 10px ;
+}
+
+.softmidasi2 {
+border-color : #507fff ;
+border-style : solid ;
+border-bottom-width : 10px ;
+border-left-width : 20px ;
+border-right-width : 20px ;
+border-top-width : 10px ;
+}
+
+.tyuuou {
+position : absolute ;
+left : 50% ;
+}
+
+.33p {
+width : 33% ;
+}
+
+.66p {
+width : 66% ;
+}
+

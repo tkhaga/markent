@@ -1,0 +1,56 @@
+body {
+font-size:1.1em
+}
+div.main	{
+position:absolute;
+left:20%;
+}
+div.leftpane	{
+padding: 0.5em;
+position:absolute;
+width:18%;
+font-size:0.75em;
+background-color:#ccccff;
+}
+.validate	{
+position:absolute ;
+}
+.size2	{
+font-size:0.75em;
+}
+.kakoi	{
+margin: 1em 0em 0.5em 0.5em;
+border : solid 1px #000000 ;
+padding :0.5em;
+}
+.rireki	{
+margin: 0em 1em 0em 0.5em;
+font-size:0.85em;
+}
+.menu1	{
+position:absolute;
+left: 0%;
+margin: 1em 0em 0em 0.5em;
+width:47%;
+}
+.menu2	{
+position:absolute;
+left: 50%;
+margin: 1em 0em 0em 0.5em;
+width:47%;
+}
+.midashi	{
+border-left : solid 12px #7fff00 ;
+border-bottom : solid 6px #7fc000 ;
+font-size:1.5em;
+font-weight:bold;
+}
+.center	{
+text-align : center ;
+}
+.sitename {
+font-size : 5.5em ;
+}
+img	{
+border-style : none ;
+}

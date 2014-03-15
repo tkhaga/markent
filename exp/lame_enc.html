@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="shift_jis"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<meta http-equiv="content-type" content="text/html; charset=shift_jis" />
+<title>HSPでlame_enc.dllを使ってみる</title>
+</head>
+<body>
+<p><a href="index.html">HSP &amp; C言語実験室トップへ</a></p>
+<p>HSPでlame_enc.dllを使ってみる</p>
+興味があったので作ってみました。日本語の資料が全く無く、ここまでで3日掛かってしまいました。「早く（パソコンを）やめろ」と怒鳴られながら。<br />
+LAMEとはオープンソースで開発されているいわゆるMP3エンコーダーです。
+あの有名な「午後のこ～だ」でもそのソースが使用されています。
+lame_enc.dllはそのLAMEをDLLインターフェイスで利用できるようにしたもので、<a href="http://home.pi.be/~mk442837/">http://home.pi.be/~mk442837/</a>や<a href="http://www.hot.ee/smpman/mp3/">http://www.hot.ee/smpman/mp3/</a>でバイナリが配布されています。ちなみにLAMEとはLame Ain't MP3 Encoderの略で、LAMEはMP3エンコーダーではないという意味です。最初がLameなのはプログラマ特有の言葉遊びの一種で例えば「GNUソフトウェア」のGNUもGNU's Not Unix!（GNUはUNIXではない）の略でありこの一種です。<br />
+<p>解説</p>
+BE_CONFIGという変数にMP3エンコードに関する情報を書きこみ、そのポインタを"beInitStream"という関数に渡しています。関数が成功すると必要なWAVEの入力バッファとMP3出力バッファの量が第二、第三パラメータで指定したポインタが指す変数に書き込まれます。第四パラメータで指定したポインタが指す変数には一つのエンコード固有のハンドルが返ってきます。WAVEファイルは先頭にヘッダがついており、後は生のPCMデータです。lame_enc.dllでは"WAVEファイルを指定すれば終わり"なのではなく、生のPCMデータを"beEncodeChunk"関数に渡して一フレームづつエンコードする必要があります。HSPではループに非常にコストが掛かってしまうため、どうしても遅くなってしまいます。lame_enc.dllを使うのであれば専用のプラグインを用いた方がよいかもしれません。エンコードが完了した部分がデータよりも多くなったら、最後に"beDeinitStream"関数でエンコードを完了します。そして"beCloseStream"関数によって終了します。C言語のヘッダにおいてはBE_CONFIGはmp3、LHV1、aac構造体による共用体として宣言されています。このサンプルではmp3構造体を使用しています。しかし面倒なので試していませんが、LHV1構造体を用いるとより細かい条件を指定することが出来ます。また、このサンプルだと一部のファイルが正常にエンコードできないことがあります。この問題はMOTO氏のCDex用パッチのソースを見れば何とかなるかもしれないな、と思います。<br />
+<p>このサンプルのポイント：C言語の構造体のHSPでの表現？</p>
+C言語の構造体は順番に格納されているデータが実体です。例えばC言語のソースで<br /><pre>
+struct{
+	DWORD a;
+	WORD b;
+	BYTE c;
+	INT d;
+}STRUCTURE;
+</pre>
+と宣言されている構造体STRUCTUREの場合<br />
+<img src="dis.png" alt="構造体内でデータが格納されている様子" /><br />
+（注意：この画像は一般的なWindows用のCコンパイラで当てはまります。OSやCPUなどの環境によってはそれぞれの型が違ったバイト数を占有していることもあります）<br />
+このようにデータが格納されているので、このようなデータの並びにすれば構造体として認識されるというわけです。ちなみにWindowsの環境ではこのデータの並び方はリトルエンディアンとなっています。
+<p>参考資料：LAMEのソースに付いていたExample.cpp、その他（色々見ていたので忘れてしまいました）</p>
+ちなみに、lame_enc.dllはエンジンがLAME 3.93.1のもので確認しました<br />
+以下サンプルスクリプトです(03/03/22 第３版)。実行するとダイアログで選択したWAVEファイルをMP3にエンコードします<br />
+<a href="lame_enc.as">ダウンロード(lame_enc.as)</a>
+<pre>
+;lame_enc.dllを使ったWAVEファイルをMP3にエンコードするサンプル（3日掛かりました）
+;サンプルなので無駄な変数もあまり減らしていません
+;しかし8bitのWAVEファイルはなぜか2倍速になる。これは私の技量では今のところ無理です
+;第２版でそんなに遅くなくなりました
+;第３版でメモリ消費量が第２版の1/2になりました。第１版よりは多いです
+
+#define	BE_CONFIG_MP3 0
+
+#define	BE_MP3_MODE_STEREO 0
+#define	BE_MP3_MODE_JSTEREO 1
+#define	BE_MP3_MODE_DUALCHANNEL 2
+#define	BE_MP3_MODE_MONO 3
+
+#define FORMAT_CHUNK_SIZE 24
+
+#include "llmod.as"
+	ll_libload hdll,"lame_enc"
+;	ll_libload hdll,"BladeEnc"		;BladeEncもこのスクリプトで問題無し
+
+	sdim infile,$100
+	sdim outfile,$100
+
+	dialog "wav",16,"WAVEファイル"
+	if stat=0 :end
+	infile=refstr
+	dialog "mp3",17,"MP3ファイル"
+	if stat=0 :end
+	outfile=refstr
+	exist infile
+	length=strsize
+	sdim wave,length
+	bload infile,wave
+	getptr pwave,wave
+	pmp3=pwave
+	begin=pmp3
+
+	str tmp
+	ll_peek tmp,pwave+12,4
+	if tmp!"fmt " :dialog "これはWAVEファイルではありません" :end
+
+	int tmp
+	ll_peek tmp,pwave+20,2
+	if tmp!1 :dialog "圧縮済みのWAVEファイルは変換できません" :end
+
+	ll_peek channel,pwave+22,2			;入力ファイルのチャンネル数
+	ll_peek srate,pwave+24,4		;入力ファイルのサンプリングレート
+
+	ll_peek tmp,pwave+16,4
+	pwave+(8+tmp)-FORMAT_CHUNK_SIZE
+
+	str tmp
+	repeat
+		ll_peek tmp,pwave,4
+		if tmp="data" :break
+		pwave+
+	loop
+	ll_peek chunksize,pwave+4,4		;データ部分のサイズ
+	pwave+8
+
+	sdim BE_CONFIG,128			;BE_CONFIG構造体
+	getptr index,BE_CONFIG
+	getptr phstream,hstream
+	getptr psamples,samples
+	getptr pmp3buflen,mp3buflen
+	param=index,psamples,pmp3buflen,phstream
+
+	;ll_poke4 BE_CONFIG_MP3,index,1
+	index+4
+
+;	ll_poke4 1,index
+;	index+4
+;	ll_poke4 LHV1_STRUCTSZE,index
+;	index+4
+;	ll_poke4 srate,index
+;	index+4
+;	ll_poke4 0,index
+;	index+4
+;	if channnel=1{
+;		channel=BE_MP3_MODE_MONO
+;	}else{
+;		channel=BE_MP3_MODE_JSTEREO
+;	}
+;	ll_poke1 channel,index
+;	index+
+;	ll_poke4 128,index
+;	index+4
+;	ll_poke4
+;	index+4
+;	ll_poke4 2,index
+;	index+4
+;	ll_poke4 1,index
+;	index+4
+;	ll_poke4 0,index
+;	index+4
+;	ll_poke4 0,index
+;	index+4
+;	index+4
+
+	ll_poke4 srate,index			;サンプリングレート(入力ファイルと同じもので無ければならない)
+	index+4
+	if channel=1{
+		channel=BE_MP3_MODE_MONO
+	}else{
+		channel=BE_MP3_MODE_JSTEREO
+	}
+	ll_poke channel,index			;モードの選択
+	index+
+	ll_poke4 128,index			;ビットレート(kbps)の選択
+	index+4
+	ll_poke4 1,index
+	index+4
+	ll_poke4 1,index
+	index+4
+	ll_poke4 1,index
+	index+4
+	ll_poke4 1,index
+
+	dllproc "beInitStream",param,4,hdll	;ストリームの初期化
+	mes stat				;0であれば成功
+	if stat :dialog "初期化に失敗しました" :end
+	mes hstream
+	mes mp3buflen
+	mes samples
+	sdim mp3buf,mp3buflen
+	sdim inputbuf,samples*2
+	getptr pinputbuf,inputbuf
+	getptr pmp3buf,mp3buf
+	getptr pencoded,encoded
+	skiperr 1
+	delete outfile
+	skiperr
+	bsave outfile,index
+	repeat
+		ll_peek inputbuf,pwave,toread
+		pwave+samples*2
+		done+samples*2
+		if done>=chunksize :break
+		param=hstream,samples,pinputbuf,pmp3buf,pencoded
+		dllproc "beEncodeChunk",param,5,hdll
+		if stat: dialog "エンコードに失敗しました" :dllproc "beCloseStream",param,1,hdll :end
+		ll_poke mp3buf,pmp3,encoded
+		pmp3+encoded
+		await				;ステータスが見たいのでウェイトをいれていますが、実際には必要ありません
+	loop
+	getptr pwrite,write
+	param=hstream,pmp3buf,pwrite
+	dllproc "beDeinitStream",param,3,hdll
+	if write{
+		ll_poke mp3buf,pmp3,write
+		pmp3+write
+	}
+	dllproc "beCloseStream",param,1,hdll
+	bsave outfile,wave,pmp3-begin
+	end
+</pre>
+</body>
+</html>

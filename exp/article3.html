@@ -1,0 +1,10 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=Shift_JIS">
+</HEAD>
+
+<P><A href="../index.html">The Markentトップへ</A></P>
+<P><A href="index.html">HSP &amp; C言語実験室トップへ</A></P>
+<P>★HSPからアーカイバDLLを使う<BR>　今までもHSPからアーカイバDLLを使う方法はありました。HSPからは直接呼び出せないので、必然的にアーカイバDLLを使うためのプラグインが登場するわけです。しかし、専用のDLLの形となってしまうとサイズも大きくなり、また、各DLLのAPIの仕様の違いに全て対応できるわけもありません。そこで私が考えたのは、「loadlib.dllを用いたモジュールにしてしまってはどうであろうか？」ということです。loadlib.dllはtom氏の開発された、HSPからDLLを呼び出すためのプラグインで、HSP 
+ver2.55フルセットには標準で添付されています。しかもサイズが小さく、更にloadlib.dllを含んだHSPランタイムも存在し、これを使えば更にサイズを小さくすることが出来ます。私もあまりAPIに詳しいわけではないのですが、何とかしてアーカイバDLLを呼び出せないかと試行錯誤の結果、「ungca.as」をとりあえず公開できるレベルに到達させることが出来ました。現在のところUnGCA32.dllでの展開専用ですが...<BR>　前置きが長くなってしまいましたが、この記事では、どのようにすればアーカイバDLLをHSPから呼び出せるのかということを、このことで私が学んだAPIの基礎から述べてゆきたいと思います。</P>
+<P>①loadlib.dllの命令を勉強する<BR>loadlib.dllにはたくさんの命令がありますが、その中でもよく使うのが、ll_libload、ll_libfree、ll_getptr、</P>

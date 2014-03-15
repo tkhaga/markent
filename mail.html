@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<title>メールフォーム</title>
+</head>
+<body>
+<A href="index.html">The Markentトップへ</A>
+<H1>メールフォーム</H1>
+所定のフォームに記入することにより私にメールを送ることが出来ます。
+メールアカウントが無かったり、メールが送れない環境にある方
+でも送ることが出来ます。気軽にご利用ください
+<form action="/cgi-bin/mail2.cgi" method="post">
+<input type="hidden" name="to" value="thaga@k7.dion.ne.jp">
+送信者（差出人）のメールアドレス<br>
+<input type="text" name="from"><br>
+送信者（差出人）のお名前<br>
+<input type="text" name="fromname"><br>
+メールの件名（タイトル）<br>
+<input type="text" name="subject"><br>
+送信内容<br>
+<textarea name="value00" cols="60" rows="10"></textarea><br>
+<input type="submit" value="送信"><br>
+
+</form>
+
+</body>
+</html>

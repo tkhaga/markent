@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+	<title>ソフト置き場２（HSP &amp; C言語実験室分室）</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS" />
+	<link rel="STYLESHEET" type="TEXT/CSS" href="style.css" />
+
+</head>
+<body>
+<h1>ソフト置き場２（HSP &amp; C言語実験室分室）</h1>
+<p>ここではHSPプラグイン、モジュール、スクリプトを公開しています。その他のソフトは
+<a href="soft.html">ソフト置き場</a>にて公開しています</p>
+<p>
+<table border="solid">
+<tr>
+<th><a href="#usa">U.S.A.</a></th>
+<th>ver.1.2a</th>
+<th>03/01/01</th>
+</tr>
+<tr>
+<th><a href="#hspextm">hspextm</a></th>
+<th>03/06/05</th>
+<th>03/06/05</th>
+</tr>
+<tr>
+<th><a href="#mhsp">MingHSP</a></th>
+<th>ver1.0 beta11</th>
+<th>06/07/09</th>
+</tr>
+<tr>
+<th><a href="#kmc">kmmlompiler</a></th>
+<th>ver.5</th>
+<th>05/07/22</th>
+</tr>
+<tr>
+<th><a href="#ptan">プロセス探検　ソーススクリプト</a></th>
+<th></th>
+<th>04/10/28</th>
+</tr>
+<tr>
+<th><a href="#makewav">makewav</a></th>
+<th></th>
+<th>05/07/31</th>
+</tr>
+<tr>
+<th><a href="#ifpdr">ifpdr.spi</a></th>
+<th>ver0.5</th>
+<th>06/10/19</th>
+</tr>
+</table>
+</p>
+<div id="usa" class="softmidasi2">その１<br />　HSPからアーカイバDLLを呼び出すモジュール「U.S.A.」 ver.1.2a</div>
+<p>　標準で現在存在するほとんどのアーカイバDLLを利用することができます。アーカイバDLLは<a 
+href="http://www.csdinc.co.jp/archiver/">統合アーカイバプロジェクト</a>でダウンロードできます。サイズを抑えたサブセット版も同梱しています</p>　「U.S.A.」は以下のリンクよりダウンロードできます 
+<br /><a href="http://hp.vector.co.jp/authors/VA029962/usa12a.lzh">usa12a.lzh(15.6KB)のダウンロード</a><br />
+<p>ver.1.2a<br />&nbsp; 02/11/18<br />&nbsp; ・HSP の最新β版で動作しなかったのを修正（以前のでも動作します） 
+<br />&nbsp; ・ついでに最近公開されたunimp32.dll にもコメントアウトして対応</p>
+<p>　とりあえず全部一緒のフォルダに入れてtest.asを実行してみてください<br />　こんなに機能はいらない。llmodを他に使わないという方は<a 
+href="http://hp.vector.co.jp/authors/VA015266/">Lhsp</a>（作者FORCE氏のホームページ）をお試しください。llmodの機能や、U.S.Aでごちゃごちゃと呼び出されている使いもしないAPIが不要の場合、開発当初の目的に反してこっちの方がかえってファイルサイズが小さくなります(^^; 
+。</p>
+<p>　まだ説明書が出来上がっていませんので、利用の際にはtest.asやusa.asを参照してください</p>
+<p>　雑誌掲載<br />Windows Power 2002年12月号</p>
+<div id="hspextm" class="softmidasi2">その２<br />　hspext.dllの機能をllmodのモジュールで「hspextm」</div>
+<p>「hspextm」は以下のリンクからダウンロードできます<br /><a href="hspextm.as">hspextm.as</a></p>
+<p>更新履歴
+<br />03/06/05 selfolderの実装
+<br />03/05/11 fxtgetの実装
+<br />02/12/12 clipgetの実装
+<br />02/07/18 clipsetの改良
+<br />02/07/15 公開</p>
+<p>　これはhspext.dllの機能をllmodでWindows 
+APIを呼び出すことによって実現するためのモジュール（になる予定）です。とりあえず現在ある機能はhspext.dllの命令で言うと</p>
+<p>fxshort<br />fxcopy<br />fxtget<br />clipset<br />clipget<br />selfolder</p>
+<p>です。自分のソフトで使うために開発しているので、必要な機能から優先して作っていますが、いずれはほとんどの命令をサポートするつもりです
+02/12/12版からHSP 2.6β15以降専用です
+</p>
+
+
+<div id="usadll" class="softmidasi2">その３<br />DLL版「U.S.A.」開発断念版ソース</div>
+<p><a href="http://hp.vector.co.jp/authors/VA029962/usasrc.zip">usasrc.zip</a></p>
+<p>「U.S.A」をHSPプラグインにしようとC言語でDLLを開発していたのですが、何故かうまく行かないので開発を断念しました。これはそのソースです。<a href="http://www.cs.virginia.edu/~lcc-win32/">LCC-Win32</a>でコンパイルできます(tom氏のHSPプラグイン、loadlib.dllのソースの一部である_CallFunc.asmを使用させて頂いています。<a href="http://www5b.biglobe.ne.jp/~diamond/hsp/hsp2file.htm">tom氏のホームページ</a>)</p>
+
+
+<a id="mhsp"></a>
+<div class="softmidasi2">その４<br />Flash出力用ライブラリMingのHSPプラグイン版「MingHSP」ver1.0 beta11.1</div>
+<p>
+これはOpaque Industriesの開発したLGPLライセンスのFlash出力ライブラリ、
+    <a href="http://ming.sourceforge.net/">Ming 0.3.0</a>をTHAGAがHSPプラグイン化したもの
+    です。HSP 2.6以降専用です<br />
+      THAGAによる独自の改造も施してあり、オリジナルと比較すると<br />
+      ・無圧縮WAVファイルが使える<br />
+      ・BMP画像ファイルが使える<br />
+      ・ParaDraw(ParaFla!)のPDR画像を扱える(モーフィングには制限あり)<br />
+      ・一つのSWFShapeに独立した複数の図形を含められる(上の改造の副作用。
+        このモードを利用した場合モーフィングは出来なくなる)<br />
+    といった違いがあります<br />
+      またActionScriptコンパイラにはMingのactioncompilerのCoa氏らによる改良
+    版である<a href="http://www.geocities.jp/coa9999/">aclib</a>を使用しています
+</p>
+<p>
+MingHSPの最新の開発状況は<a href="http://blogs.dion.ne.jp/thaga/">THAGAのHSPとか色々</a>に書かれているかもしれません
+</p>
+<p class="redb">重要：minghsp.hpi, minghspj.hpiの再配布の際は、配布アーカイブ中のlgpl.txtを同梱してください。そのほかのファイルについての条件は<a href="soft/minghsp/minghsp.txt">minghsp.txt</a>を参照してください。<br />
+</p>
+<p>
+<pre>
+最新版での変更点
+ver1.0 beta11.1 (06/07/10)
+
+  --全体--
+    ・実際にMingHSPを使用したソフトを配布する場合に行わなければならない事を
+      具体的に書きました
+
+  --MingHSP--
+    ・s_loadPdr命令でPDR上の座標を指定してそこをSWFShapeオブジェクトにおける
+      原点にできるようにした
+    ・s_loadPdr命令でming_setScaleで設定した値を考慮するようにした
+    ・minghsp.asのバグによりHSP3でs_drawCubicTo, s_drawCubic, i_setMatrix, 
+      g_addEntryが正常に動作していなかったのを修正
+
+  --mingdc--
+    ・細かい変更
+</pre>
+過去の変更点は<a href="soft/minghsp/changelog.txt">changelog.txt</a>を参照してください
+</p>
+<p>
+MingHSPのダウンロード(上下はアーカイブ形式が異なるだけで同一内容です)<br />
+<a href="http://hp.vector.co.jp/authors/VA029962/mhsp10b11_1.zip">mhsp10b11_1.zip(1023KB)</a><br />
+<a href="http://hp.vector.co.jp/authors/VA029962/mhsp10b11_1.7z">mhsp10b11_1.7z(714KB)</a>
+</p>
+<p>
+<a href="soft/minghsp/minghsp.txt">ドキュメント(minghsp.txt)</a><br />
+<a href="test.swf">同梱のテストスクリプトにより作成されるSWF</a><br />
+<a href="kita.swf">ｷﾀ━━━━(ﾟ∀ﾟ)━━━━ｯ!!</a>&nbsp;<a href="kita.as">(スクリプト)</a>
+</p>
+<p>
+IPAフォントをMingHSPで扱えるFDB形式に変換したものを配布しています。ライセンスの関係で「共通のオープンプリンティングシステムの開発」の成果物と同梱するという形になっています。サイズ削減のため、元のIPAフォントと「共通のオープンプリンティングシステムの開発」以外のプロジェクトで作成されたものを削除しています。7-zipで圧縮しています。
+</p>
+<p>
+ダウンロードはこちらです<br />
+<a href="http://www.h5.dion.ne.jp/~markent/openprinting-jp-0.1.3_ipafont_fdb.7z">openprinting-jp-0.1.3_ipafont_fdb.7z(3677KB)</a>
+</p>
+<div id="kmc" class="softmidasi2">その５<br />OSASK用MMLをMIDIに変換「kmmlcompiler」ver.5
+</div>
+<p><img src="midi.png" alt="kmmlcompiler ver.4スクリーンショット" width="486" height="209" /></p>
+<p>このソフトはMMLという音楽記述言語を解釈し、標準MIDIファイルに変換するソフトです。
+OSASKというOSで動作する、小柳雅明氏作のMMLPLAYというソフトの形式のMMLと、それを独自に拡張して複数トラックに対応した形式のものが読みこめます。
+</p>
+<p>
+<a href="http://hp.vector.co.jp/authors/VA029962/midi5.zip">midi5.zip</a>(midi.asがスクリプト、kmmlcomp.txtが説明書です)<br />
+<a href="http://hp.vector.co.jp/authors/VA029962/midi2.zip">midi2.zip</a>(コンテスト最終バージョン。バグあり)
+</p>
+<p>HSP 2.6β15及び正式版で実行できることを確認しています。2.55でもloadlib.dllがあれば多分大丈夫でしょう<br />
+※HSP 3.0では動作しません
+</p>
+<div id="ptan" class="softmidasi2">その５<br />プロセス情報取得ツール「プロセス探検」</div><p>このソフトは現在起動中のプログラムを列挙して、それぞれについてパスを調べる
+、強制終了させる、優先度を変更するということができます。
+</p>
+<p>
+<a href="http://hp.vector.co.jp/authors/VA029962/process.zip">process.zip</a>(process.asがスクリプト、process.txtが説明書です)<br />
+</p>
+<div id="makewav" class="softmidasi2">その６<br />MMLをWAVE音声ファイルに変換「makewav」</div>
+<p>makewavはMMLをWAVE音声ファイルに変換するソフトです。<br />
+  学校の課題で作成したものに、直接WAVEファイルを出力するようにする、最新のkmmlcompilerに仕様を合わせるなどの改変を施したものです<br />
+  動作にはSun Microsystems社が配布しているJRE が必要です（Microsoft VMで動作
+するかは不明）。古いのでも動くとは思いますが、JRE 1.4以上をお勧めします。<br />
+  JRE は<a href="http://java.com/ja/">http://java.com/ja/</a>でダウンロードできます。
+</p>
+<p>
+ダウンロードはこちらです<br />
+<a href="http://hp.vector.co.jp/authors/VA029962/makewav.zip">makewav.zip</a>(24KB)
+</p>
+
+<div id="ifpdr" class="softmidasi2">その７<br />ParaDraw専用画像形式PDR用Susieプラグイン「ifpdr.spi」ver0.5</div>
+<p>
+Coa氏作のフリーのドローソフト、<a href="http://www.geocities.jp/coa9999/">ParaDraw</a>の専用画像形式のPDRファイルをSusieプラグイン対応アプリケーションで見られるようにするSusieプラグインです。PDR&nbsp;Ver0.1～0.3とPDCLIP&nbsp;Ver0.2,Ver0.3に対応しています。<br />
+おまけとしてpdr2bmp.exe，pdr2swf.exeを同梱しています
+(それぞれ実行ファイルへのドラッグアンドドロップでPDR→BMP，PDR→SWF変換を行います)。
+</p>
+<p>
+動作にはIE 5.0以上と、IE用Flash Playerの両方がインストールされている必要があります。
+</p>
+<p class="redb">0.3より前のバージョンはFlash Player 9で動作しませんので、0.3以降に更新してください
+</p>
+<p>注意：僅かですがグラデーションの見た目がParaDrawと異なります。あらかじめご了承ください。
+</p>
+<p>
+<pre>
+最新版での変更点
+    ver0.5 (06/10/19)
+      ・PDR Ver0.3に対応
+      ・PDCLIPのサイズ情報取得処理を高速化
+      ・画像を読み込むたびに必ずメモリリークを起こしていたのを修正
+      ・線形グラデ2 でグラデーション中間の制御点の位置をParaDrawの出力と完全
+        に一致するようにした
+      ・その他
+</pre>
+</p>
+<p>
+<a href="soft/ifpdr/ifpdr.txt">説明書(ifpdr.txt)</a>
+</p>
+<p>
+ダウンロードはこちらです<br />
+<a href="http://hp.vector.co.jp/authors/VA029962/ifpdr04.zip">ifpdr04.zip</a>(80KB)
+</p>

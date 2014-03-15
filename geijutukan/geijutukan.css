@@ -1,0 +1,51 @@
+div.kakoi {
+	border-top: thin 2px dashed;
+	padding: 3px;
+	margin: 6px 0px;
+	color: #408040;
+}
+a:hover {
+	color: #206010;
+	background-color: #80ccff;
+	}
+.hidari {
+	width : 20% ;
+	}
+.block {
+	position:absolute;
+	top: 0%;
+	left: 20%;
+	}
+.hide {
+	color:window;
+	}
+.back {
+	BACKGROUND-COLOR:#FFCCCC;
+	}
+.moji{
+	position: absolute;
+	left:20%;
+	right:20%;
+	color: #707070;
+	font-size: 12pt;
+	}
+.midashi{
+	padding:8pt 8pt;
+	text-align:center;
+	color:#906040;
+	BACKGROUND-COLOR:#FFeeCC;
+	font-size: 2.5em;
+	}
+.syoukai{
+	margin:8pt 16pt;
+	color: #707070;
+	font-size:12pt;
+	clear:both;
+	}
+.midashi2{
+	font:normal bold 100%/100% serif;
+        color: #707070;
+	}
+.gazol{
+	float:left;
+	}

@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=Shift_JIS">
+<TITLE>HSPでいろいろやってみました第一回</TITLE>
+</HEAD>
+<BODY>
+<P>The Markentトップへ</P>
+<P>HSPでいろいろやってみました第一回</P>
+<P>本当はこのページで一番やりたかったことなのにいろいろあって出来ませんでした。</P>
+<P>こんなものかいてみました</P>
+<P>#define&nbsp;a "とおおおおおおおおおおおっても長ーーーーーーい文字列"<BR>mes a<BR>end</P>
+<P>これをコンパイルするとstart.axは151バイトになります</P>
+<P>mes "とおおおおおおおおおおおっても長ーーーーーーい文字列"<BR>end</P>
+<P>やっぱり151バイトです。</P>
+<P>しかーし</P>
+<P>a="とおおおおおおおおおおおっても長ーーーーーーい文字列"<BR>mes a<BR>end</P>
+<P>とすると何と157バイトになってしまいます</P>
+<P>次</P>
+<P>（これは何も書いていないということ）</P>
+<P>これは92バイトになります</P>
+<P>end</P>
+<P>これは94バイトになります。endは書かないほうが得ですね(笑)。ちなみに色々試したところ、end命令は2バイトと決まっているようです</P>
+<P>a=511</P>
+<P>98</P>
+<P>a=512</P>
+<P>102</P>
+<P>a+511</P>
+<P>98</P>
+<P>a=a+511</P>
+<P>102</P>
+<P>#uselib "hspext.dll"</P>
+<P>116</P>
+<P>#uselib "hspext.dll"<BR>#func regkey regkey 4</P>
+<P>139</P>
+<P>#uselib "hspext.dll"<BR>#func regkey regkey 4<BR>#func regkill regkill 4</P>
+<P>163</P>
+<P>私がなぜ#funcを自分のスクリプト内で書くかを理解していただけたかと思います(^^;</P>
+<P>（ファイル名）testtest.as<BR>end</P>
+<P>102</P>
+<P>（ファイル名）test.as<BR>end</P>
+<P>98</P>
+<P>どうやらstart.axにはファイル名の情報も含まれていると思います</P>
+<P>次書くときにはstart.axの中身についても検証してゆきたいと思います。<BR></P>
+</BODY>
+</HTML>

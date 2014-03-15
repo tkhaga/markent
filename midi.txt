@@ -1,0 +1,241 @@
+;MIDIこんぱいら（になる予定）
+;#include "loadlib.as"
+
+sdim midi,0x10000
+
+;ヘッダチャンク
+midi="MThd"
+ll_getptr midi
+ll_ret pt
+index=pt
+index+4
+ll_poke4 0x06,index,1
+index+4
+ll_poke2 0x00,index,1
+index+2
+ll_poke2 0x01,index,1
+index+2
+ll_poke2 0xc0,index,1
+index+2
+
+;トラックチャンク
+data="MTrk"
+ll_poke data,index,4
+index+8
+track=index-4
+
+;音色
+index+
+ll_poke1 0xc0,index
+index+
+;ピアノ
+ll_poke1 0x00,index
+index+2
+
+;メタイベント(著作権)
+;ll_poke1 0xff,index
+;index+
+;ll_poke1 0x02,index
+;index+
+;s="THAGA"
+;strlen data,s
+;ll_poke1 data,index
+;index+
+;ll_poke s,index,data
+;index+data
+
+;メタイベント(拍子)
+;ll_poke1 0xff,index
+;index+
+;ll_poke1 0x58,index
+;index+
+;ll_poke1 0x04,index
+;index+
+
+;偽MML解析(テスト用のMIDIを作るのが面倒なため)
+codetable=9,11,0,2,4,5,7
+sdim nametable,3,12
+nametable="C","C#","D","D#","E","F","F#","G","G#","A","A#","B"
+;ceghjlno
+mml="ccjjllj hhggeec jjhhgge jjhhgge ccjjllj hhggeec"
+strlen ss,mml
+diff='c'-60
+
+repeat ss
+	peek note,mml,cnt
+	if note=' '{
+		temp=0xc0
+		data=0x90
+		ll_poke1 data,index
+		index+3
+		data=0x80|(temp>>7)
+		ll_poke1 data,index
+		index+
+		data=temp&0x7f
+		ll_poke1 data,index
+		index+
+	}
+	note-diff
+	;ノートオン
+	vol=60
+	temp=0xc0
+	data=0x90
+	ll_poke1 data,index
+	index+
+	ll_poke1 note,index
+	index+
+	ll_poke1 vol,index
+	index+
+	data=0x80|(temp>>7)
+	ll_poke1 data,index
+	index+
+	data=temp&0x7f
+	ll_poke1 data,index
+	index+
+
+	;ノートオフ
+	data=0x90
+	ll_poke1 data,index
+	index+
+	data=note
+	ll_poke1 data,index
+	index+
+	ll_poke1 0,index
+	index+2
+loop
+
+;エンドオブトラック
+ll_poke1 0xff,index
+index+
+ll_poke1 0x2f,index
+index+
+ll_poke1 0x00,index
+
+data=index-track+1-4
+ll_poke4 data,track,1
+
+bsave "test.mid",midi,index-pt+1
+end
+
+;ノートオン
+data=9<<4|1|(note<<8)|(vol<<16)
+gosub digi
+
+;ノートオフ
+data=8<<4
+stop
+*digi
+	nishin=""
+	repeat 32
+		if data&(1<<(31-cnt)) :nishin+"1" :else :nishin+"0"
+	loop
+	mes nishin
+	return
+*演奏ループ
+	peek c,mml,index	
+	indexbak=index
+	if c=0{stop}
+	index+
+	if ignore=0{
+		if t=0{t=120}
+		if c>='a'&(c<='t'){c-32}
+		if c='T'{
+			gosub 数字 :t=tmp :goto 演奏ループ
+		}
+		if c='O'{
+			gosub 数字 :o=tmp :goto 演奏ループ
+		}
+		if c='L'{
+			gosub 数字 :l=tmp :goto 演奏ループ
+		}
+		if c='Q'{
+			gosub 数字 :q=tmp :goto 演奏ループ
+		}
+		if c='>'{
+			o+ :goto 演奏ループ
+		}
+		if c='<'{
+			o- :goto 演奏ループ
+		}
+		if c>='A'&(c<='G'){
+			notebak=note
+			note=c-'A'
+			note=o+1*12+codetable.note+shift
+			peek num,mml,index
+			if num='#'|(num='+'){
+				index+
+				note+
+			}
+			if num='-'{
+				index+
+				note-
+			}
+			gosub 長さ計算
+			tmp=note-2\12
+			if tmp<0{
+				tmp=12-(tmp*-1)
+			}
+			goto 演奏ループ
+		}
+		if c='R'{
+			gosub 長さ計算
+			goto 演奏ループ
+		}
+		if c=' '|(c=13)|(c=10){
+			goto 演奏ループ
+		}
+	}
+	ignore=1
+	if c=13|(c=10){
+		ignore=0
+	}
+	goto 演奏ループ
+*数字
+	repeat
+		peek num,mml,index
+		if '0'>num|(num>'9'){
+			if cnt=0{
+				tmp=0
+				break
+			}
+			strmid tmp,mml,index-cnt,cnt
+			int tmp
+			break
+		}
+		index+
+	loop
+	return
+*長さ計算
+	gosub 数字
+	if tmp{
+		length=tmp
+	}else{
+		length=l
+	}
+	if length=0{
+		length=l
+		if length=0{
+			length+4
+		}
+	}
+	length=192/length
+	peek num,mml,index
+	if num='.'{
+		index+
+		length+(length/2)
+	}
+	peek num,mml,index
+	if num='&'{
+		index+
+		if tai=1{
+			tai=2
+		}
+		if tai=0{
+			tai=1
+		}
+	}else{
+		if tai{
+			tai=3
+		}
+	}
+	return
